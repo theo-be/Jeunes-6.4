@@ -1,0 +1,41 @@
+.degrade-horizontal{
+    background: linear-gradient(to right,#FDFDFD,#D8D8D8);
+}
+
+div {
+    margin: 0 auto;
+    width: 1600px;
+    height: 100%;
+}
+
+p.bloc1{
+    text-align: center;
+    letter-spacing: .2rem;
+    color: #45236E;
+    font-size: 2.5em;
+}  
+
+img.bloc2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    opacity: 1;
+}
+
+p.bloc3{
+    text-align: center;
+    color: #616EAD; 
+}
+
+p.bloc4{
+    text-align: center;
+    color: #D75553;
+}
+
+@media screen and (max-width: 1599px) {
+    div{
+        margin: 0 auto;
+        width: 90%;
+        height: 100%;
+    }
+}
