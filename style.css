@@ -2,34 +2,47 @@
     background: linear-gradient(to right,#FDFDFD,#D8D8D8);
 }
 
-div {
-    margin: 0 auto;
-    width: 1600px;
-    height: 100%;
-}
-
-p.bloc1{
+.bloc1{
     text-align: center;
+    width: 550px;
+    margin: auto;
+    overflow: hidden;
     letter-spacing: .2rem;
     color: #45236E;
     font-size: 2.5em;
 }  
 
-img.bloc2 {
+.bloc2 {
     display: block;
     margin-left: auto;
     margin-right: auto; 
+    margin-top: -90px;
     opacity: 1;
 }
 
-p.bloc3{
+.bloc3{
     text-align: center;
-    color: #616EAD; 
+    width: 380px;
+    color: #343287; 
+    margin: auto;
+    margin-top: -85px;
+    font-size: 1.9em;
 }
 
-p.bloc4{
+.bloc4{
     text-align: center;
+    margin: auto;
+    margin-top: 25px;
+    font-size: 1.9em;
     color: #D75553;
+}
+
+.bloc5{
+    margin: auto;
+    margin-top: 30px;
+    width: 590px;
+    text-align: center;
+    color: #C1B6B3;
 }
 
 @media screen and (max-width: 1599px) {
