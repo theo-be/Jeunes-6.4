@@ -1,39 +1,64 @@
 <?php
+
+require_once "Compte.php";
+
+
+
 session_start();
 // recuperation des donnees du formulaire d'inscription
+$_SESSION["erreur"] = 0;
+$_SESSION["messageerreur"] = "";
 
 // verification des donnees d'entree
-if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaissance"]) && isset($_POST["email"]) && isset($_POST["reseau"]) && isset($_POST["engagement"]) && isset($_POST["duree"]) && isset($_POST["savoiretre"]))
-/*|| $_POST["nom"] == "" || $_POST["prenom"] == "" || $_POST["datenaissance"] == "" || $_POST["email"] == ""*/) {
+// donees minimum necessaires
+if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaissance"]) && isset($_POST["email"]))) { 
     // erreur donnees manquantes
     echo "ERREUR : données manquantes\n";
 } else {
-    $bdd = fopen("../data/bdd.txt", "a+");
-
-    // fprintf($bdd, "%s,%s,%s,%s,%s,%s,%s\n", $_POST["nom"], $_POST["prenom"], $_POST["datenaissance"], $_POST["email"], $_POST["reseau"], $_POST["engagement"], $_POST["duree"]);
 
 
+    $contenufichier = file_get_contents("../data/bdd.json");
+    $bdd = json_decode($contenufichier, false);
+    
+
+    $nombrecomptes = count($bdd->comptes);
+
+    // Verification de la presence du compte
+    for ($i = 0; $i < $nombrecomptes; $i++) {
+        if ($bdd->comptes[$i]->email == $_POST["email"] 
+        || ($bdd->comptes[$i]->nom == $_POST["nom"] && $bdd->comptes[$i]->prenom == $_POST["prenom"])) {
+            $_SESSION["erreur"] = 1;
+            $_SESSION["messageerreur"] = "Erreur : compte deja inscrit";
+            break;
+        }
+    }
+    // s'il n'y a pas d'erreur
+    if (!$_SESSION["erreur"]) {
+
+        $compte = new Compte();
+        $compte->nom = htmlspecialchars($_POST["nom"]);
+        $compte->prenom = htmlspecialchars($_POST["prenom"]);
+        $compte->email = htmlspecialchars($_POST["email"]);
+        $compte->datenaissance = htmlspecialchars($_POST["datenaissance"]);
+
+
+
+        $_SESSION["nom"] = htmlspecialchars($_POST["nom"]);
+        $_SESSION["prenom"] = htmlspecialchars($_POST["prenom"]);
+        $_SESSION["email"] = htmlspecialchars($_POST["email"]);
+        $_SESSION["datenaissance"] = htmlspecialchars($_POST["datenaissance"]);
+        
+
+        array_push($bdd->comptes, $compte);
+        $contenufichier = json_encode($bdd);
+
+        file_put_contents("../data/bdd.json", $contenufichier);
 
 
 
 
-
-
-
-    // foreach ($_POST as $key => $elmt) {
-    //     echo "$key => $elmt - ";
-    // }
-
-    // $se = $_POST["savoiretre"];
-    // echo var_dump($se);
-
-    // foreach ($se as $val) {
-    //     echo $val;
-    // }
-
-    fclose($bdd);
-
-    $_SESSION["statut_client"] = "jeune";
+        $_SESSION["statut_client"] = "jeune";
+    }
 }
 
 header("Location: ../web/jeune.php");
