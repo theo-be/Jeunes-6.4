@@ -47,7 +47,7 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
         $_SESSION["prenom"] = htmlspecialchars($_POST["prenom"]);
         $_SESSION["email"] = htmlspecialchars($_POST["email"]);
         $_SESSION["datenaissance"] = htmlspecialchars($_POST["datenaissance"]);
-        
+        $_SESSION["referent"] = 0;
 
         array_push($bdd->comptes, $compte);
         $contenufichier = json_encode($bdd);

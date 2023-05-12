@@ -74,15 +74,15 @@
             echo "<p>Ajouter une demande de referencement :</p>";
             echo "<p>Informations supplémentaires:</p>";
             echo '
-            <form action="../php/inscription.php" method="post">
+            <form action="../php/inscriptionreferent.php" method="post">
                 nom* <input type="text" name="nom" id="nom" required="required" value="'.$_SESSION["nom"].'">
                 prenom* <input type="text" name="prenom" id="prenom" required="required" value="'.$_SESSION["prenom"].'">
                 date de naissance* <input type="text" name="datenaissance" id="datenaissance" required="required" value="'.$_SESSION["datenaissance"].'">
                 email* <input type="text" name="email" id="email" required="required" value="'.$_SESSION["email"].'">
-                reseau <input type="text" name="reseau" id="reseau">
-                engagement <input type="text" name="engagement" id="engagement">
-                duree <input type="text" name="duree" id="duree">
-                <p>Mes savoirs être</p>
+                reseau* <input type="text" name="reseau" id="reseau">
+                engagement* <input type="text" name="engagement" id="engagement">
+                duree* <input type="text" name="duree" id="duree">
+                <p>Mes savoirs être*</p>
                 autonome<input type="checkbox" name="savoiretre[]" id="autonome" value="autonome">
                 passionne<input type="checkbox" name="savoiretre[]" id="passionne" value="passionne">
                 reflechi<input type="checkbox" name="savoiretre[]" id="reflechi" value="reflechi">
@@ -96,14 +96,14 @@
             ';
             echo "<p>Informations du référent</p>";
             echo '
-                nom <input type="text" name="nomref" id="nomref">
-                prenom <input type="text" name="prenomref" id="prenomref">
-                email <input type="text" name="emailref" id="emailref">
-                datenaissance <input type="text" name="datenaissanceref" id="datenaissanceref">
-                reseau <input type="text" name="reseauref" id="reseauref">
-                presentation <input type="text" name="presentationref" id="presentationref">
-                duree <input type="text" name="dureeref" id="dureeref">
-                <p>Ses savoirs être</p>
+                nom* <input type="text" name="nomref" id="nomref">
+                prenom* <input type="text" name="prenomref" id="prenomref">
+                email* <input type="text" name="emailref" id="emailref">
+                datenaissance* <input type="text" name="datenaissanceref" id="datenaissanceref">
+                reseau* <input type="text" name="reseauref" id="reseauref">
+                presentation* <input type="text" name="presentationref" id="presentationref">
+                duree* <input type="text" name="dureeref" id="dureeref">
+                <p>Ses savoirs être*</p>
                 confiance<input type="checkbox" name="savoiretreref[]" id="confiance" value="confiance">
                 bienveillance<input type="checkbox" name="savoiretreref[]" id="bienveillance" value="bienveillance">
                 respect<input type="checkbox" name="savoiretreref[]" id="respect" value="respect">

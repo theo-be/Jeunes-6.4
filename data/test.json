@@ -1,0 +1,17 @@
+{
+    "bdd": [
+        {
+            "email": "a",
+            "mdp": "abc",
+            "nom": "nom",
+            "prenom": "prenom",
+            "datenaissance": "01/01/2001",
+            "reseau": "",
+            "engagement": "",
+            "duree": "",
+            "savoiretre": [
+                
+            ]
+        }
+    ]
+}
