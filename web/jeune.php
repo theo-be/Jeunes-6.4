@@ -79,39 +79,39 @@
                 prenom* <input type="text" name="prenom" id="prenom" required="required" value="'.$_SESSION["prenom"].'">
                 date de naissance* <input type="text" name="datenaissance" id="datenaissance" required="required" value="'.$_SESSION["datenaissance"].'">
                 email* <input type="text" name="email" id="email" required="required" value="'.$_SESSION["email"].'">
-                reseau* <input type="text" name="reseau" id="reseau">
-                engagement* <input type="text" name="engagement" id="engagement">
-                duree* <input type="text" name="duree" id="duree">
+                reseau* <input type="text" name="reseau" id="reseau" required="required" value="'.$_SESSION["reseau"].'">
+                engagement* <input type="text" name="engagement" id="engagement" required="required" value="'.$_SESSION["engagement"].'">
+                duree* <input type="text" name="duree" id="duree" required="required" value="'.$_SESSION["duree"].'">
                 <p>Mes savoirs être*</p>
-                autonome<input type="checkbox" name="savoiretre[]" id="autonome" value="autonome">
-                passionne<input type="checkbox" name="savoiretre[]" id="passionne" value="passionne">
-                reflechi<input type="checkbox" name="savoiretre[]" id="reflechi" value="reflechi">
-                alecoute<input type="checkbox" name="savoiretre[]" id="alecoute" value="alecoute">
-                organise<input type="checkbox" name="savoiretre[]" id="organise" value="organise">
-                fiable<input type="checkbox" name="savoiretre[]" id="fiable" value="fiable">
-                patient<input type="checkbox" name="savoiretre[]" id="patient" value="patient">
-                responsable<input type="checkbox" name="savoiretre[]" id="responsable" value="responsable">
-                sociable<input type="checkbox" name="savoiretre[]" id="sociable" value="sociable">
-                optimiste<input type="checkbox" name="savoiretre[]" id="optimiste" value="optimiste">
+                autonome<input type="checkbox" name="savoiretre[]" id="autonome" value="autonome"' . (in_array("autonome", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
+                passionne<input type="checkbox" name="savoiretre[]" id="passionne" value="passionne"' . (in_array("passionne", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
+                reflechi<input type="checkbox" name="savoiretre[]" id="reflechi" value="reflechi"' . (in_array("reflechi", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
+                alecoute<input type="checkbox" name="savoiretre[]" id="alecoute" value="alecoute"' . (in_array("alecoute", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
+                organise<input type="checkbox" name="savoiretre[]" id="organise" value="organise"' . (in_array("organise", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
+                fiable<input type="checkbox" name="savoiretre[]" id="fiable" value="fiable"' . (in_array("fiable", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
+                patient<input type="checkbox" name="savoiretre[]" id="patient" value="patient"' . (in_array("confiance", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
+                responsable<input type="checkbox" name="savoiretre[]" id="responsable" value="responsable"' . (in_array("responsable", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
+                sociable<input type="checkbox" name="savoiretre[]" id="sociable" value="sociable"' . (in_array("sociable", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
+                optimiste<input type="checkbox" name="savoiretre[]" id="optimiste" value="optimiste"' . (in_array("optimiste", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
             ';
             echo "<p>Informations du référent</p>";
             echo '
-                nom* <input type="text" name="nomref" id="nomref">
-                prenom* <input type="text" name="prenomref" id="prenomref">
-                email* <input type="text" name="emailref" id="emailref">
-                datenaissance* <input type="text" name="datenaissanceref" id="datenaissanceref">
-                reseau* <input type="text" name="reseauref" id="reseauref">
-                presentation* <input type="text" name="presentationref" id="presentationref">
-                duree* <input type="text" name="dureeref" id="dureeref">
+                nom* <input type="text" name="nomref" id="nomref" required="required" value="'.$_SESSION["nomref"].'">
+                prenom* <input type="text" name="prenomref" id="prenomref" required="required" value="'.$_SESSION["prenomref"].'">
+                email* <input type="text" name="emailref" id="emailref" required="required" value="'.$_SESSION["emailref"].'">
+                datenaissance* <input type="text" name="datenaissanceref" id="datenaissanceref" required="required" value="'.$_SESSION["datenaissanceref"].'">
+                reseau* <input type="text" name="reseauref" id="reseauref" required="required" value="'.$_SESSION["reseauref"].'">
+                presentation* <input type="text" name="presentationref" id="presentationref" required="required" value="'.$_SESSION["presentationref"].'">
+                duree* <input type="text" name="dureeref" id="dureeref" required="required" value="'.$_SESSION["dureeref"].'">
                 <p>Ses savoirs être*</p>
-                confiance<input type="checkbox" name="savoiretreref[]" id="confiance" value="confiance">
-                bienveillance<input type="checkbox" name="savoiretreref[]" id="bienveillance" value="bienveillance">
-                respect<input type="checkbox" name="savoiretreref[]" id="respect" value="respect">
-                honnetete<input type="checkbox" name="savoiretreref[]" id="honnetete" value="honnetete">
-                tolerance<input type="checkbox" name="savoiretreref[]" id="tolerance" value="tolerance">
-                juste<input type="checkbox" name="savoiretreref[]" id="juste" value="juste">
-                impartial<input type="checkbox" name="savoiretreref[]" id="impartial" value="impartial">
-                travail<input type="checkbox" name="savoiretreref[]" id="travail" value="travail">
+                confiance<input type="checkbox" name="savoiretreref[]" id="confiance" value="confiance"' . (in_array("confiance", $_SESSION["savoiretreref"]) ? 'checked="checked"' : '') . '>
+                bienveillance<input type="checkbox" name="savoiretreref[]" id="bienveillance" value="bienveillance"' . (in_array("bienveillance", $_SESSION["savoiretreref"]) ? 'checked="checked"' : '') . '>
+                respect<input type="checkbox" name="savoiretreref[]" id="respect" value="respect"' . (in_array("respect", $_SESSION["savoiretreref"]) ? 'checked="checked"' : '') . '>
+                honnetete<input type="checkbox" name="savoiretreref[]" id="honnetete" value="honnetete"' . (in_array("honnetete", $_SESSION["savoiretreref"]) ? 'checked="checked"' : '') . '>
+                tolerance<input type="checkbox" name="savoiretreref[]" id="tolerance" value="tolerance"' . (in_array("tolerance", $_SESSION["savoiretreref"]) ? 'checked="checked"' : '') . '>
+                juste<input type="checkbox" name="savoiretreref[]" id="juste" value="juste"' . (in_array("juste", $_SESSION["savoiretreref"]) ? 'checked="checked"' : '') . '>
+                impartial<input type="checkbox" name="savoiretreref[]" id="impartial" value="impartial"' . (in_array("impartial", $_SESSION["savoiretreref"]) ? 'checked="checked"' : '') . '>
+                travail<input type="checkbox" name="savoiretreref[]" id="travail" value="travail"' . (in_array("travail", $_SESSION["savoiretreref"]) ? 'checked="checked"' : '') . '>
                 <input type="submit" value="Envoyer">
             </form>
             ';

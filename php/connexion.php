@@ -1,6 +1,7 @@
 <?php
 
 require_once "Compte.php";
+require_once "cherchecompte.php";
 
 session_start();
 
@@ -16,23 +17,55 @@ if (!isset($_POST["email"])) {
 
     $nombrecomptes = count($bdd->comptes);
 
+    $idjeune = chercheCompte($bdd, $_POST["email"]);
     $compteexiste = 0;
-
-    for ($i = 0; $i < $nombrecomptes; $i++) {
-        if ($bdd->comptes[$i]->email == $_POST["email"]) {
+    if ($idjeune != -1) {
+        // si le compte n'est pas un compte jeune
+        if ($bdd->comptes[$idjeune]->type != "jeune") {
+            $_SESSION["erreur"] = 1;
+            $_SESSION["messageerreur"] = "ERREUR : tentative de connexion à un compte référent";
+        } else {
             $compteexiste = 1;
             $_SESSION["statut_client"] = "jeune";
-            $_SESSION["nom"] = $bdd->comptes[$i]->nom;
-            $_SESSION["prenom"] = $bdd->comptes[$i]->prenom;
-            $_SESSION["email"] = $bdd->comptes[$i]->email;
-            $_SESSION["datenaissance"] = $bdd->comptes[$i]->datenaissance;
-            $_SESSION["savoiretre"] = $bdd->comptes[$i]->savoiretre;
-            $_SESSION["duree"] = $bdd->comptes[$i]->duree;
-            $_SESSION["engagements"] = $bdd->comptes[$i]->engagements;
+            $_SESSION["nom"] = $bdd->comptes[$idjeune]->nom;
+            $_SESSION["prenom"] = $bdd->comptes[$idjeune]->prenom;
+            $_SESSION["email"] = $bdd->comptes[$idjeune]->email;
+            $_SESSION["datenaissance"] = $bdd->comptes[$idjeune]->datenaissance;
+            $_SESSION["reseau"] = $bdd->comptes[$idjeune]->reseau;
+            $_SESSION["savoiretre"] = $bdd->comptes[$idjeune]->savoiretre;
+            $_SESSION["duree"] = $bdd->comptes[$idjeune]->duree;
+            $_SESSION["engagement"] = $bdd->comptes[$idjeune]->engagement;
 
-            break;
+            // s'il y a au moins un referent
+            if (($nombreliaison = count($bdd->comptes[$idjeune]->idliaison)) != 0) {
+                $idreferent = $bdd->comptes[$idjeune]->idliaison[0];
+                $_SESSION["referent"] = 1;
+                $_SESSION["nomref"] = $bdd->comptes[$idreferent]->nom;
+                $_SESSION["prenomref"] = $bdd->comptes[$idreferent]->prenom;
+                $_SESSION["emailref"] = $bdd->comptes[$idreferent]->email;
+                $_SESSION["datenaissanceref"] = $bdd->comptes[$idreferent]->datenaissance;
+                $_SESSION["reseauref"] = $bdd->comptes[$idreferent]->reseau;
+                $_SESSION["savoiretreref"] = $bdd->comptes[$idreferent]->savoiretre;
+                $_SESSION["dureeref"] = $bdd->comptes[$idreferent]->duree;
+                $_SESSION["presentationref"] = $bdd->comptes[$idreferent]->engagement;
+            } else { // s'il n'y a aucun referent
+                $_SESSION["referent"] = 0;
+                $_SESSION["nomref"] = "";
+                $_SESSION["prenomref"] = "";
+                $_SESSION["emailref"] = "";
+                $_SESSION["datenaissanceref"] = "";
+                $_SESSION["reseauref"] = "";
+                $_SESSION["savoiretreref"] = [];
+                $_SESSION["dureeref"] = "";
+                $_SESSION["presentationref"] = "";
+            }
+            $_SESSION["erreur"] = 0;
+            $_SESSION["messageerreur"] = "";
         }
+
+
     }
+
 
     if (!$compteexiste) {
         $_SESSION["erreur"] = 1;

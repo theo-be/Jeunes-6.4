@@ -8,8 +8,9 @@ class Compte {
     public $email = "";
     public $datenaissance = "";
     public $reseau = "";
-    public $engagements = "";
+    public $engagement = "";
     public $duree = "";
     public $savoiretre = [];
+    public $idliaison = [];
 }
 ?>

@@ -12,10 +12,12 @@ $_SESSION["messageerreur"] = "";
 // verification des donnees d'entree
 // donees minimum necessaires
 if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaissance"]) && isset($_POST["email"]))) { 
-    // erreur donnees manquantes
-    echo "ERREUR : données manquantes\n";
+    // erreur
+    $_SESSION["erreur"] = 1;
+    $_SESSION["messageerreur"] = "ERREUR : formulaire corompu";
 } else {
-
+    $_SESSION["erreur"] = 0;
+    $_SESSION["messageerreur"] = "";
 
     $contenufichier = file_get_contents("../data/bdd.json");
     $bdd = json_decode($contenufichier, false);
@@ -25,8 +27,8 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
 
     // Verification de la presence du compte
     for ($i = 0; $i < $nombrecomptes; $i++) {
-        if ($bdd->comptes[$i]->email == $_POST["email"] 
-        || ($bdd->comptes[$i]->nom == $_POST["nom"] && $bdd->comptes[$i]->prenom == $_POST["prenom"])) {
+        if ($bdd->comptes[$i]->email == $_POST["email"] ||
+        ($bdd->comptes[$i]->nom == $_POST["nom"] && $bdd->comptes[$i]->prenom == $_POST["prenom"])) {
             $_SESSION["erreur"] = 1;
             $_SESSION["messageerreur"] = "Erreur : compte deja inscrit";
             break;
@@ -36,6 +38,7 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
     if (!$_SESSION["erreur"]) {
 
         $compte = new Compte();
+        $compte->id = $bdd->prochain_id++;
         $compte->nom = htmlspecialchars($_POST["nom"]);
         $compte->prenom = htmlspecialchars($_POST["prenom"]);
         $compte->email = htmlspecialchars($_POST["email"]);
@@ -49,8 +52,25 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
         $_SESSION["datenaissance"] = htmlspecialchars($_POST["datenaissance"]);
         $_SESSION["referent"] = 0;
 
+
+
+        $_SESSION["engagement"] = "";
+        $_SESSION["duree"] = "";
+        $_SESSION["reseau"] = "";
+        $_SESSION["savoiretre"] = [];
+
+
+        $_SESSION["nomref"] = "";
+        $_SESSION["prenomref"] = "";
+        $_SESSION["emailref"] = "";
+        $_SESSION["datenaissanceref"] = "";
+        $_SESSION["reseauref"] = "";
+        $_SESSION["presentationref"] = "";
+        $_SESSION["dureeref"] = "";
+        $_SESSION["savoiretreref"] = [];
+
         array_push($bdd->comptes, $compte);
-        $contenufichier = json_encode($bdd);
+        $contenufichier = json_encode($bdd, JSON_PRETTY_PRINT);
 
         file_put_contents("../data/bdd.json", $contenufichier);
 

@@ -1,1 +1,45 @@
-{"comptes":[{"nom":"NOM","prenom":"PRENOM","datenaissance":"a","email":"a","engagement":"eng","duree":"dur","savoiretre":null},{"nom":"z","prenom":"zz","email":"z","datenaissance":"zzz","reseau":"","engagements":"","duree":"","savoiretre":null,"engagement":""},{"nom":"q","prenom":"q","email":"q","datenaissance":"q","reseau":"","engagements":"","duree":"","savoiretre":[]},{"nom":"s","prenom":"s","email":"s","datenaissance":"s","reseau":"","engagements":"","duree":"","savoiretre":[]},{"id":0,"nom":"f","prenom":"f","email":"f","datenaissance":"f","reseau":"","engagements":"","duree":"","savoiretre":[]},{"id":0,"type":"referent","nom":"ref","prenom":"ref","email":"fre","datenaissance":"erf","reseau":"","engagements":"","duree":"ref","savoiretre":null,"engagement":"ref"},{"id":0,"type":"referent","nom":"","prenom":"","email":"","datenaissance":"","reseau":"","engagements":"","duree":"","savoiretre":null,"engagement":""}]}
+{
+    "comptes": [
+        {
+            "id": 0,
+            "type": "jeune",
+            "nom": "a",
+            "prenom": "a",
+            "email": "a",
+            "datenaissance": "a",
+            "reseau": "a",
+            "engagement": "a",
+            "duree": "a",
+            "savoiretre": [
+                "autonome",
+                "passionne",
+                "reflechi",
+                "organise"
+            ],
+            "idliaison": [
+                1
+            ]
+        },
+        {
+            "id": 1,
+            "type": "referent",
+            "nom": "b",
+            "prenom": "b",
+            "email": "b",
+            "datenaissance": "b",
+            "reseau": "b",
+            "engagement": "b",
+            "duree": "b",
+            "savoiretre": [
+                "bienveillance",
+                "tolerance",
+                "juste",
+                "impartial"
+            ],
+            "idliaison": [
+                0
+            ]
+        }
+    ],
+    "prochain_id": 2
+}
