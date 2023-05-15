@@ -15,52 +15,54 @@ if (!isset($_POST["email"])) {
 
     $bdd = json_decode($contenufichier, false);
 
-    $nombrecomptes = count($bdd->comptes);
+    $nombrecomptesjeunes = count($bdd->comptejeune);
+    $nombrecomptesref = count($bdd->compteref);
 
-    $idjeune = chercheCompte($bdd, $_POST["email"]);
+    $idjeune = chercheCompteJeune($bdd, $_POST["email"]);
     $compteexiste = 0;
     if ($idjeune != -1) {
-        // si le compte n'est pas un compte jeune
-        if ($bdd->comptes[$idjeune]->type != "jeune") {
-            $_SESSION["erreur"] = 1;
-            $_SESSION["messageerreur"] = "ERREUR : tentative de connexion à un compte référent";
-        } else {
+        if (password_verify($_POST["mdp"], $bdd->comptejeune[$idjeune]->mdp)) {
             $compteexiste = 1;
             $_SESSION["statut_client"] = "jeune";
-            $_SESSION["nom"] = $bdd->comptes[$idjeune]->nom;
-            $_SESSION["prenom"] = $bdd->comptes[$idjeune]->prenom;
-            $_SESSION["email"] = $bdd->comptes[$idjeune]->email;
-            $_SESSION["datenaissance"] = $bdd->comptes[$idjeune]->datenaissance;
-            $_SESSION["reseau"] = $bdd->comptes[$idjeune]->reseau;
-            $_SESSION["savoiretre"] = $bdd->comptes[$idjeune]->savoiretre;
-            $_SESSION["duree"] = $bdd->comptes[$idjeune]->duree;
-            $_SESSION["engagement"] = $bdd->comptes[$idjeune]->engagement;
+            $_SESSION["nom"] = $bdd->comptejeune[$idjeune]->nom;
+            $_SESSION["prenom"] = $bdd->comptejeune[$idjeune]->prenom;
+            $_SESSION["email"] = $bdd->comptejeune[$idjeune]->email;
+            $_SESSION["datenaissance"] = $bdd->comptejeune[$idjeune]->datenaissance;
+            $_SESSION["reseau"] = $bdd->comptejeune[$idjeune]->reseau;
+            $_SESSION["savoiretre"] = $bdd->comptejeune[$idjeune]->savoiretre;
+            $_SESSION["duree"] = $bdd->comptejeune[$idjeune]->duree;
+            $_SESSION["engagement"] = $bdd->comptejeune[$idjeune]->engagement;
+            $_SESSION["comptecomplet"] = $bdd->comptejeune[$idjeune]->complet;
+            $_SESSION["idcompte"] = $bdd->comptejeune[$idjeune]->id;
 
-            // s'il y a au moins un referent
-            if (($nombreliaison = count($bdd->comptes[$idjeune]->idliaison)) != 0) {
-                $idreferent = $bdd->comptes[$idjeune]->idliaison[0];
-                $_SESSION["referent"] = 1;
-                $_SESSION["nomref"] = $bdd->comptes[$idreferent]->nom;
-                $_SESSION["prenomref"] = $bdd->comptes[$idreferent]->prenom;
-                $_SESSION["emailref"] = $bdd->comptes[$idreferent]->email;
-                $_SESSION["datenaissanceref"] = $bdd->comptes[$idreferent]->datenaissance;
-                $_SESSION["reseauref"] = $bdd->comptes[$idreferent]->reseau;
-                $_SESSION["savoiretreref"] = $bdd->comptes[$idreferent]->savoiretre;
-                $_SESSION["dureeref"] = $bdd->comptes[$idreferent]->duree;
-                $_SESSION["presentationref"] = $bdd->comptes[$idreferent]->engagement;
-            } else { // s'il n'y a aucun referent
-                $_SESSION["referent"] = 0;
-                $_SESSION["nomref"] = "";
-                $_SESSION["prenomref"] = "";
-                $_SESSION["emailref"] = "";
-                $_SESSION["datenaissanceref"] = "";
-                $_SESSION["reseauref"] = "";
-                $_SESSION["savoiretreref"] = [];
-                $_SESSION["dureeref"] = "";
-                $_SESSION["presentationref"] = "";
-            }
+            // // s'il y a au moins un referent
+            // if (($nombreliaison = count($bdd->comptejeune[$idjeune]->idref)) != 0) {
+            //     $idreferent = $bdd->comptejeune[$idjeune]->idref[0];
+            //     $_SESSION["nbreferent"]++;
+            //     $_SESSION["nomref"] = $bdd->compteref[$idreferent]->nom;
+            //     $_SESSION["prenomref"] = $bdd->compteref[$idreferent]->prenom;
+            //     $_SESSION["emailref"] = $bdd->compteref[$idreferent]->email;
+            //     $_SESSION["datenaissanceref"] = $bdd->compteref[$idreferent]->datenaissance;
+            //     $_SESSION["reseauref"] = $bdd->compteref[$idreferent]->reseau;
+            //     $_SESSION["savoiretreref"] = $bdd->compteref[$idreferent]->savoiretre;
+            //     $_SESSION["dureeref"] = $bdd->compteref[$idreferent]->duree;
+            //     $_SESSION["presentationref"] = $bdd->compteref[$idreferent]->presentation;
+            // } else { // s'il n'y a aucun referent
+            //     $_SESSION["nbreferent"] = 0;
+            //     $_SESSION["nomref"] = "";
+            //     $_SESSION["prenomref"] = "";
+            //     $_SESSION["emailref"] = "";
+            //     $_SESSION["datenaissanceref"] = "";
+            //     $_SESSION["reseauref"] = "";
+            //     $_SESSION["savoiretreref"] = [];
+            //     $_SESSION["dureeref"] = "";
+            //     $_SESSION["presentationref"] = "";
+            // }
             $_SESSION["erreur"] = 0;
             $_SESSION["messageerreur"] = "";
+        } else {
+            $_SESSION["erreur"] = 1;
+            $_SESSION["messageerreur"] = "Erreur : mdp incorrect";
         }
 
 

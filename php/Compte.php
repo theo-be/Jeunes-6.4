@@ -1,8 +1,8 @@
 <?php
 
-class Compte {
+class CompteJeune {
     public $id = 0;
-    public $type = "jeune";
+    public $mdp = "";
     public $nom = "";
     public $prenom = "";
     public $email = "";
@@ -11,6 +11,21 @@ class Compte {
     public $engagement = "";
     public $duree = "";
     public $savoiretre = [];
-    public $idliaison = [];
+    public $idref = [];
+    public $complet = 0;
+}
+
+
+class CompteReferent {
+    public $id = 0;
+    public $nom = "";
+    public $prenom = "";
+    public $email = "";
+    public $datenaissance = "";
+    public $reseau = "";
+    public $presentation = "";
+    public $duree = "";
+    public $savoiretre = [];
+    public $idjeune = [];
 }
 ?>

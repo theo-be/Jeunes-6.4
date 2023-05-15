@@ -1,6 +1,7 @@
 <?php
 
 require_once "Compte.php";
+require_once "cherchecompte.php";
 
 
 
@@ -15,6 +16,9 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
     // erreur
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : formulaire corompu";
+} elseif ($_POST["mdp"] != $_POST["mdpc"]) { // si les mdp ne sont pas les memes
+    $_SESSION["erreur"] = 1;
+    $_SESSION["messageerreur"] = "Erreur : les mots de passe sont différents";
 } else {
     $_SESSION["erreur"] = 0;
     $_SESSION["messageerreur"] = "";
@@ -23,22 +27,19 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
     $bdd = json_decode($contenufichier, false);
     
 
-    $nombrecomptes = count($bdd->comptes);
+    $nombrecomptes = count($bdd->comptejeune);
 
     // Verification de la presence du compte
-    for ($i = 0; $i < $nombrecomptes; $i++) {
-        if ($bdd->comptes[$i]->email == $_POST["email"] ||
-        ($bdd->comptes[$i]->nom == $_POST["nom"] && $bdd->comptes[$i]->prenom == $_POST["prenom"])) {
-            $_SESSION["erreur"] = 1;
-            $_SESSION["messageerreur"] = "Erreur : compte deja inscrit";
-            break;
-        }
+    if (chercheCompteJeune($bdd, $_POST["email"]) != -1 && $_SESSION["statut_client"] != "jeune") {
+        $_SESSION["erreur"] = 1;
+        $_SESSION["messageerreur"] = "Erreur : compte deja inscrit";
     }
     // s'il n'y a pas d'erreur
     if (!$_SESSION["erreur"]) {
 
-        $compte = new Compte();
-        $compte->id = $bdd->prochain_id++;
+        $compte = new CompteJeune();
+        $compte->id = $bdd->prochain_id_jeune++;
+        $compte->mdp = password_hash($_POST["mdp"], PASSWORD_DEFAULT);
         $compte->nom = htmlspecialchars($_POST["nom"]);
         $compte->prenom = htmlspecialchars($_POST["prenom"]);
         $compte->email = htmlspecialchars($_POST["email"]);
@@ -50,7 +51,10 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
         $_SESSION["prenom"] = htmlspecialchars($_POST["prenom"]);
         $_SESSION["email"] = htmlspecialchars($_POST["email"]);
         $_SESSION["datenaissance"] = htmlspecialchars($_POST["datenaissance"]);
-        $_SESSION["referent"] = 0;
+
+        $_SESSION["nbreferent"] = 0;
+        $_SESSION["comptecomplet"] = 0;
+        $_SESSION["idcompte"] = $compte->id;
 
 
 
@@ -69,7 +73,7 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
         $_SESSION["dureeref"] = "";
         $_SESSION["savoiretreref"] = [];
 
-        array_push($bdd->comptes, $compte);
+        array_push($bdd->comptejeune, $compte);
         $contenufichier = json_encode($bdd, JSON_PRETTY_PRINT);
 
         file_put_contents("../data/bdd.json", $contenufichier);

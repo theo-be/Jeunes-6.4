@@ -1,8 +1,8 @@
 {
-    "comptes": [
+    "comptejeune": [
         {
             "id": 0,
-            "type": "jeune",
+            "mdp": "$2y$10$XHEasEB1zP8YXZZou2JO0.nsKE4xiFf6.jG1JgYrYOv1DaHtjtV1a",
             "nom": "a",
             "prenom": "a",
             "email": "a",
@@ -11,35 +11,113 @@
             "engagement": "a",
             "duree": "a",
             "savoiretre": [
-                "autonome",
-                "passionne",
-                "reflechi",
-                "organise"
+                "organise",
+                "fiable",
+                "sociable",
+                "optimiste"
             ],
-            "idliaison": [
-                1
-            ]
+            "idref": [
+                0,
+                2,
+                3
+            ],
+            "complet": 1
         },
         {
             "id": 1,
-            "type": "referent",
+            "mdp": "$2y$10$d6Xne8v3ndkDSkbqXJBLuu7.PqUiyjSMZpGW7j3N3Fx.VBOgtqFLC",
+            "nom": "c",
+            "prenom": "c",
+            "email": "c",
+            "datenaissance": "c",
+            "reseau": "c",
+            "engagement": "c",
+            "duree": "c",
+            "savoiretre": [
+                "autonome"
+            ],
+            "idref": [
+                1,
+                3
+            ],
+            "complet": 1
+        }
+    ],
+    "compteref": [
+        {
+            "id": 0,
             "nom": "b",
             "prenom": "b",
             "email": "b",
             "datenaissance": "b",
             "reseau": "b",
-            "engagement": "b",
+            "presentation": "b",
             "duree": "b",
             "savoiretre": [
                 "bienveillance",
-                "tolerance",
-                "juste",
-                "impartial"
+                "respect",
+                "honnetete"
             ],
-            "idliaison": [
+            "idjeune": [
                 0
+            ]
+        },
+        {
+            "id": 1,
+            "nom": "d",
+            "prenom": "d",
+            "email": "d",
+            "datenaissance": "d",
+            "reseau": "d",
+            "presentation": "d",
+            "duree": "d",
+            "savoiretre": [
+                "bienveillance",
+                "respect",
+                "honnetete"
+            ],
+            "idjeune": [
+                1
+            ]
+        },
+        {
+            "id": 2,
+            "nom": "e",
+            "prenom": "e",
+            "email": "e",
+            "datenaissance": "e",
+            "reseau": "e",
+            "presentation": "e",
+            "duree": "e",
+            "savoiretre": [
+                "confiance",
+                "travail"
+            ],
+            "idjeune": [
+                0
+            ]
+        },
+        {
+            "id": 3,
+            "nom": "f",
+            "prenom": "f",
+            "email": "f",
+            "datenaissance": "f",
+            "reseau": "f",
+            "presentation": "f",
+            "duree": "f",
+            "savoiretre": [
+                "bienveillance",
+                "respect",
+                "impartial",
+                "travail"
+            ],
+            "idjeune": [
+                0,
+                1
             ]
         }
     ],
-    "prochain_id": 2
+    "prochain_id_jeune": 2,
+    "prochain_id_referent": 4
 }
