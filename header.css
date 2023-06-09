@@ -1,0 +1,135 @@
+body{              /* Réinitialisation des marges et des espacements */
+    margin: 0;
+    padding-top: 0;
+}
+  
+
+.contenu_banniere{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background: linear-gradient(to right , #b8b8b8 , #f5f5f5 17%, #b8b8b8 );
+}
+
+.bloc1{
+    height: 100%;
+    width: 215px;
+    margin-left: 40px;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+
+.bloc2{
+    text-align: right;
+    margin-right: 30px;
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+
+.bloc3{
+    font-size: 5.2em;
+    margin-top: 30px;
+    color: #726f6f;
+    text-transform: uppercase;
+}
+
+.bloc4{
+    margin-top: 0px;
+    letter-spacing: .3rem;
+    font-size: 3.2em;
+    color: rgb(255, 255, 255);
+}
+
+.page{
+    background: linear-gradient(to right , #b8b8b8 , #f5f5f5 17%, #b8b8b8 );
+    height: 50px;
+    margin-top: 0;
+    margin-right: 25% ;
+    margin-left: 25%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.default_1{
+    font-size: 25px;
+    padding-top: 12px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    color: #EF037F;
+}
+
+.default_2{
+    font-size: 25px;
+    padding-top: 12px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    color: rgb(19,165,56);
+}
+
+.default_3{
+    font-size: 25px;
+    padding-top: 12px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    color: rgb(19,159,227);
+}
+
+.partenaires{
+    font-size: 25px;
+    padding-top: 12px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    color: rgb(112,111,117);
+}
+
+.jeune{
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #EF037F;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    font-size: 25px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #b8b8b8;
+}
+
+.referent{
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(19,165,56);
+    padding-top: 12px;
+    padding-bottom: 10px;
+    font-size: 25px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #b8b8b8;
+}
+
+.consultant{
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(19,159,227);
+    padding-top: 12px;
+    padding-bottom: 10px;
+    font-size: 25px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #b8b8b8;
+}
+
+/* $session nom de la page egale nom page
+header si cette page alors cette classe donc ce css
+header .php est test.html garde que header
+
+class::
+bandeau : background, image, margin
+banniere : 4 categories, couleurs associées, margin, background
+
+controle maj r
