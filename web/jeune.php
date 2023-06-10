@@ -10,7 +10,7 @@
     <title> limitCoche</title>
 <script>
      function limitCheckboxSelection() {
-            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var checkboxes = document.getElementsByClassName("coche-jeune")[0].querySelectorAll('input[type="checkbox"]');
             var checkedCount = 0;
 
             for (var i = 0; i < checkboxes.length; i++) {
@@ -95,6 +95,6 @@
 
     </div>
     
-  
+   
 </body>
 </html>
