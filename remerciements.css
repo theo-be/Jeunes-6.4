@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    background-image: url('LOGOS JEUNES.png');
+    background-size: auto;
+    background-position: center top 160px;
+    background-repeat: no-repeat;
+}
+h1 {
+    color: #333;
+    font-size: 24px;
+}
+p {
+    color: #777;
+    font-size: 16px;
+    margin-top: 10px;
+}
