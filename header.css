@@ -90,10 +90,22 @@ body{              /* Réinitialisation des marges et des espacements */
     padding-top: 12px;
     padding-bottom: 10px;
     font-size: 25px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-radius: 15px;
     border-color: #b8b8b8;
+}
+
+.jeune2{
+    color:#EF037F;
+}
+
+.referent2{
+    color: rgb(19,165,56);
+}
+
+.consultant2{
+    color: rgb(19,159,227);
 }
 
 .referent{
@@ -104,7 +116,7 @@ body{              /* Réinitialisation des marges et des espacements */
     padding-top: 12px;
     padding-bottom: 10px;
     font-size: 25px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-radius: 15px;
     border-color: #b8b8b8;
@@ -118,7 +130,7 @@ body{              /* Réinitialisation des marges et des espacements */
     padding-top: 12px;
     padding-bottom: 10px;
     font-size: 25px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-radius: 15px;
     border-color: #b8b8b8;
