@@ -1,0 +1,93 @@
+body{
+    background-image: url('/img/logorose.png');
+    background-position: 50% 350px;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    
+}
+
+
+
+.textejeune{
+    margin:auto;
+    width: 52%;
+    font-size:50PX;
+    color:rgb(230, 0, 126);
+}
+
+.boxjeune{
+    background-color: white;
+    margin: auto;
+    width:35%;
+    height: 450px;
+    border:4px solid rgb(230, 0, 126);
+    padding : 20px;
+}
+
+.Jeune{
+    font-size: 38px;
+    color: rgb(230, 0, 126);
+    line-height: 1.5;
+}
+
+
+.boxdroite-jeune{
+   margin-right: 2%;
+   margin-left:85%;
+   margin-top: -500px;
+}
+
+.messavoirs-jeune{
+    text-align-last: right;
+    color:rgb(230, 0, 126);
+    font-size:40px;
+    padding-right:20px;
+    letter-spacing: -3px;
+}
+
+.boxconfirme-jeune{
+    height: 60px;  
+    background: linear-gradient(to right, white, rgb(230, 0, 126));
+    color:white;
+    font-size:40px;
+    padding-left: 65%;
+    letter-spacing: -3px;
+    padding-top: 5px;
+}
+
+.coche-jeune{
+    padding-left:10%;
+    background-image: radial-gradient(circle at 0% 0%, rgb(253, 243, 251), rgb(252, 238, 238));
+    height: 600px;
+    font-size: 45px;
+}
+
+.case-coche{
+     
+    scale:3;
+    margin-right: 20px;
+    
+}
+
+.case-coche + label{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+  }
+
+.choix{
+    padding-left:15%;
+    padding-top:5%;
+    font-size:25px;
+    color:rgb(230, 0, 126);
+}
+
+.valider{
+    background-color: rgb(230, 0, 126);
+    margin-left: 100px;
+    margin-top:10px;
+    width: 50%;
+    height: 60px;
+    color:white;
+    font-size: 35px;
+}

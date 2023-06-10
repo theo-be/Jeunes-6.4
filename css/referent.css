@@ -1,0 +1,124 @@
+body{
+    background-image: url('/img/logovert.png');
+    background-position: 50% 450px;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    
+}
+
+
+
+.textereferent{
+    margin:auto;
+    width: 35%;
+    font-size:50px;
+    color:green;
+}
+.textereferent2{
+    margin:auto;
+    width: 26%;
+    font-size:50px;
+    color:green;
+}
+
+.boxreferent{
+    background-color: white;
+    margin: auto;
+    width:35%;
+    height: 450px;
+    border:4px solid yellowgreen;
+    padding : 20px;
+}
+
+.referent{
+    font-size: 38px;
+    color: yellowgreen;
+    line-height: 1.5;
+}
+
+.boxdroite-referent{
+    margin-right: 2%;
+    margin-left:85%;
+    margin-top: -550px;
+ }
+ 
+ .messavoirs-referent{
+     text-align-last: right;
+     color:yellowgreen;
+     font-size:40px;
+     padding-right:20px;
+     letter-spacing: -3px;
+ }
+ 
+ .boxconfirme-referent{
+     height: 55px;  
+     background: linear-gradient(to right, yellowgreen, green);
+     color:white;
+     font-size:40px;
+     padding-left: 5%;
+     letter-spacing: -3px;
+     padding-top: 10px;
+ }
+ 
+ .coche-referent{
+     padding-left:10%;
+     background-image: radial-gradient(circle at 0% 0%, rgb(228, 243, 188), rgb(197, 235, 122));
+     height: 520px;
+     font-size: 48px;
+ }
+ 
+ .case-coche{
+     
+     scale:3;
+     margin-right: 20px;
+     
+ }
+ 
+ .case-coche + label{
+     display: inline-block;
+     vertical-align: middle;
+     margin-left: 5px;
+   }
+ 
+ .choix{
+     padding-left:15%;
+     padding-top:5%;
+     font-size:25px;
+     color:yellowgreen;
+ }
+ 
+ .valider{
+     background-color: green;
+     margin-left: 100px;
+     margin-top:10px;
+     width: 50%;
+     height: 60px;
+     color:white;
+     font-size: 35px;
+ }
+
+ .boxgauche-referent{
+    margin-left: 2%;
+    margin-right:85%;
+    margin-top: -650px;
+ }
+
+ .boxcommentaire-referent{
+    height: 70px;  
+    background-image: radial-gradient(circle at 0% 0%, rgb(228, 243, 188), rgb(197, 235, 122));
+    color:white;
+    font-size:40px;
+    padding-left: 7%;
+    padding-top: 15px;
+    
+}
+
+.commentaire-referent{
+    padding-left:5%;
+    padding-top: 10%;
+    background-image: radial-gradient(circle at 0% 0%, rgb(228, 243, 188), rgb(197, 235, 122));
+    height: 430px;
+    font-size: 30px;
+    line-height: 1.8;
+}
+
