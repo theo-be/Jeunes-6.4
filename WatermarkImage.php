@@ -1,72 +1,41 @@
 <?php
 
-namespace Mpdf;
+namespace Mpdf\Tag;
 
-class WatermarkImage implements \Mpdf\Watermark
+class WatermarkImage extends Tag
 {
 
-	const SIZE_DEFAULT = 'D';
-	const SIZE_FIT_PAGE = 'P';
-	const SIZE_FIT_FRAME = 'F';
-	const POSITION_CENTER_PAGE = 'P';
-	const POSITION_CENTER_FRAME = 'F';
-
-	/** @var string */
-	private $path;
-
-	/** @var mixed */
-	private $size;
-
-	/** @var mixed */
-	private $position;
-
-	/** @var float */
-	private $alpha;
-
-	/** @var bool */
-	private $behindContent;
-	
-	/** @var string */
-	private $alphaBlend;
-
-	public function __construct($path, $size = self::SIZE_DEFAULT, $position = self::POSITION_CENTER_PAGE, $alpha = -1, $behindContent = false, $alphaBlend = 'Normal')
+	public function open($attr, &$ahtml, &$ihtml)
 	{
-		$this->path = $path;
-		$this->size = $size;
-		$this->position = $position;
-		$this->alpha = $alpha;
-		$this->behindContent = $behindContent;
-		$this->alphaBlend = $alphaBlend;
+		$src = '';
+		if (isset($attr['SRC'])) {
+			$src = $attr['SRC'];
+		}
+
+		$alpha = -1;
+		if (isset($attr['ALPHA']) && $attr['ALPHA'] > 0) {
+			$alpha = $attr['ALPHA'];
+		}
+
+		$size = 'D';
+		if (!empty($attr['SIZE'])) {
+			$size = $attr['SIZE'];
+			if (strpos($size, ',')) {
+				$size = explode(',', $size);
+			}
+		}
+
+		$pos = 'P';
+		if (!empty($attr['POSITION'])) {  // mPDF 5.7.2
+			$pos = $attr['POSITION'];
+			if (strpos($pos, ',')) {
+				$pos = explode(',', $pos);
+			}
+		}
+		$this->mpdf->SetWatermarkImage($src, $alpha, $size, $pos);
 	}
 
-	public function getPath()
+	public function close(&$ahtml, &$ihtml)
 	{
-		return $this->path;
 	}
-
-	public function getSize()
-	{
-		return $this->size;
-	}
-
-	public function getPosition()
-	{
-		return $this->position;
-	}
-
-	public function getAlpha()
-	{
-		return $this->alpha;
-	}
-
-	public function isBehindContent()
-	{
-		return $this->behindContent;
-	}
-
-	public function getAlphaBlend()
-	{
-		return $this->alphaBlend;
-	}
-
 }

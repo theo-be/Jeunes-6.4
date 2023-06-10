@@ -2,7 +2,7 @@
 
 namespace Mpdf\Tag;
 
-class Form extends BlockTag
+class Bdi extends InlineTag
 {
 
 
