@@ -1,0 +1,45 @@
+form{
+    width: 400px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+label{
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+
+button{
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.statut{
+    display: block;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+  
+.en_cours{
+    background-color: #FFC107;
+    color: white;
+}
+  
+.en_attente{
+    background-color: #17A2B8;
+    color: white;
+}
+  
+.fini{
+    background-color: #28A745;
+    color: white;
+}

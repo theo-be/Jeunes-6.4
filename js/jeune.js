@@ -24,7 +24,7 @@ if (document.getElementById("modifiercompte")) {
                 // document.write(this.responseText);
             }
         }
-        xhttp.open("GET", "../php/formulaireinscriptioncomplet.php");
+        xhttp.open("GET", "/php/formulaireinscriptioncomplet.php");
         xhttp.send();
     });
 }
@@ -34,12 +34,14 @@ if (document.getElementById("ajouterreferent")) {
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var div = document.createElement("div");
-                div.innerHTML = this.responseText;
+                div.innerHTML = "<p>Ajouter une demande de referencement :</p>";
+                div.innerHTML += "<p>Informations du référent</p>";
+                div.innerHTML += this.responseText;
                 document.body.appendChild(div);
                 // document.write(this.responseText);
             }
         }
-        xhttp.open("GET", "../php/formulaireinscriptionreferent.php");
+        xhttp.open("GET", "/php/formulaireinscriptionreferent.php");
         xhttp.send();
     });
 }
@@ -59,7 +61,7 @@ if (document.getElementsByClassName("modifierref")) {
                     // document.write(this.responseText);
                 }
             }
-            xhttp.open("GET", `../php/formulaireinscriptionreferent.php?prerempli=1&email=${this.parentNode.childNodes[3].textContent}`);
+            xhttp.open("GET", `/php/formulaireinscriptionreferent.php?prerempli=1&email=${this.id}`);
             xhttp.send();
         });
     }

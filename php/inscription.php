@@ -16,6 +16,15 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
     // erreur
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : formulaire corompu";
+} else if ((isset($_POST["email"]) && !preg_match('#([0-9a-z]){3,}@([a-z]){2,}.([a-z]){2,4}$#i', $_POST["email"])) || 
+(isset($_POST["emailconsultant"]) && !preg_match('#([0-9a-z]){3,}@([a-z]){2,}.([a-z]){2,4}$#i', $_POST["emailconsultant"]))) {
+    // erreur
+    $_SESSION["erreur"] = 1;
+    $_SESSION["messageerreur"] = "ERREUR : addresse email dans la mauvais format";
+} else if ((isset($_POST["email"]) && !preg_match('#^([0-9]{2}/){2}[0-9]{4}$#', $_POST["datenaissance"]))) {
+    // erreur
+    $_SESSION["erreur"] = 1;
+    $_SESSION["messageerreur"] = "ERREUR : date de naissance dans le mauvais format, format JJ/MM/AAAA";
 } elseif ($_POST["mdp"] != $_POST["mdpc"]) { // si les mdp ne sont pas les memes
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "Erreur : les mots de passe sont différents";
@@ -40,17 +49,19 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
         $compte = new CompteJeune();
         $compte->id = $bdd->prochain_id_jeune++;
         $compte->mdp = password_hash($_POST["mdp"], PASSWORD_DEFAULT);
-        $compte->nom = htmlspecialchars($_POST["nom"]);
-        $compte->prenom = htmlspecialchars($_POST["prenom"]);
-        $compte->email = htmlspecialchars($_POST["email"]);
-        $compte->datenaissance = htmlspecialchars($_POST["datenaissance"]);
+        $compte->nom = htmlspecialchars(trim($_POST["nom"]));
+        $compte->prenom = htmlspecialchars(trim($_POST["prenom"]));
+        $compte->email = htmlspecialchars(trim($_POST["email"]));
+        $compte->emailconsultant = htmlspecialchars(trim($_POST["emailconsultant"]));
+        $compte->datenaissance = htmlspecialchars(trim($_POST["datenaissance"]));
 
 
 
-        $_SESSION["nom"] = htmlspecialchars($_POST["nom"]);
-        $_SESSION["prenom"] = htmlspecialchars($_POST["prenom"]);
-        $_SESSION["email"] = htmlspecialchars($_POST["email"]);
-        $_SESSION["datenaissance"] = htmlspecialchars($_POST["datenaissance"]);
+        $_SESSION["nom"] = htmlspecialchars(trim($_POST["nom"]));
+        $_SESSION["prenom"] = htmlspecialchars(trim($_POST["prenom"]));
+        $_SESSION["email"] = htmlspecialchars(trim($_POST["email"]));
+        $_SESSION["emailconsultant"] = htmlspecialchars(trim($_POST["emailconsultant"]));
+        $_SESSION["datenaissance"] = htmlspecialchars(trim($_POST["datenaissance"]));
 
         $_SESSION["nbreferent"] = 0;
         $_SESSION["comptecomplet"] = 0;
@@ -85,5 +96,5 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
     }
 }
 
-header("Location: ../web/jeune.php");
+header("Location: /web/jeune.php");
 ?>

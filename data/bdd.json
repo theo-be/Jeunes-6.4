@@ -6,21 +6,126 @@
             "nom": "a",
             "prenom": "a",
             "email": "a",
+            "emailconsultant": "terrainnom62@gmail.com",
             "datenaissance": "a",
             "reseau": "a",
             "engagement": "a",
             "duree": "a",
             "savoiretre": [
+                "autonome",
                 "organise",
                 "fiable",
-                "sociable",
-                "optimiste"
+                "responsable"
+            ],
+            "savoiretreref": [
+                {
+                    "de": 0,
+                    "savoiretre": [
+                        "bienveillance",
+                        "honnetete",
+                        "tolerance"
+                    ]
+                },
+                {
+                    "de": 2,
+                    "savoiretre": [
+                        "respect",
+                        "travail"
+                    ]
+                },
+                {
+                    "de": 3,
+                    "savoiretre": [
+                        "bienveillance",
+                        "respect",
+                        "impartial",
+                        "travail"
+                    ]
+                },
+                {
+                    "de": 4,
+                    "savoiretre": [
+                        "bienveillance"
+                    ]
+                },
+                {
+                    "de": 5,
+                    "savoiretre": [
+                        "confiance",
+                        "bienveillance",
+                        "respect",
+                        "honnetete",
+                        "tolerance",
+                        "juste",
+                        "impartial"
+                    ]
+                },
+                {
+                    "de": 6,
+                    "savoiretre": [
+                        "bienveillance",
+                        "respect"
+                    ]
+                },
+                {
+                    "de": 7,
+                    "savoiretre": [
+                        "travail"
+                    ]
+                },
+                {
+                    "de": 8,
+                    "savoiretre": [
+                        "respect",
+                        "impartial",
+                        "travail"
+                    ]
+                }
             ],
             "idref": [
                 0,
                 2,
-                3
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
             ],
+            "statutdemande": [
+                "Demande valid\u00e9e par le r\u00e9f\u00e9rent",
+                "Demande valid\u00e9e par le r\u00e9f\u00e9rent",
+                "En attente du r\u00e9f\u00e9rent",
+                "Demande valid\u00e9e par le r\u00e9f\u00e9rent",
+                "Demande valid\u00e9e par le r\u00e9f\u00e9rent",
+                "En attente du referent",
+                "En attente du referent",
+                "Demande valid\u00e9e par le r\u00e9f\u00e9rent"
+            ],
+            "commentaire": [
+                {
+                    "de": 0,
+                    "texte": "Martin s'est bien int\u00e9gr\u00e9 \u00e0 notre \u00e9quipe !"
+                },
+                {
+                    "de": 2,
+                    "texte": "commentaire"
+                },
+                {
+                    "de": 5,
+                    "texte": "yo"
+                },
+                {
+                    "de": 4,
+                    "texte": " je fais un comm"
+                },
+                {
+                    "de": 8,
+                    "texte": "il est bon"
+                }
+            ],
+            "statutdemandeconsultant": 1,
+            "messagestatutdemandeconsultant": "En attente du consultant",
             "complet": 1
         },
         {
@@ -29,6 +134,7 @@
             "nom": "c",
             "prenom": "c",
             "email": "c",
+            "emailconsultant": "jeanlemermoud@gmail.com",
             "datenaissance": "c",
             "reseau": "c",
             "engagement": "c",
@@ -36,18 +142,139 @@
             "savoiretre": [
                 "autonome"
             ],
+            "savoiretreref": [
+                {
+                    "de": 1,
+                    "savoiretre": [
+                        "bienveillance",
+                        "respect",
+                        "honnetete"
+                    ]
+                },
+                {
+                    "de": 3,
+                    "savoiretre": [
+                        "bienveillance",
+                        "respect",
+                        "impartial",
+                        "travail"
+                    ]
+                },
+                {
+                    "de": 1,
+                    "savoiretre": [
+                        "honnetete",
+                        "juste"
+                    ]
+                }
+            ],
             "idref": [
                 1,
                 3
             ],
+            "statutdemande": [
+                "Demande valid\u00e9e par le r\u00e9f\u00e9rent",
+                "En attente du r\u00e9f\u00e9rent"
+            ],
+            "commentaire": [],
+            "statutdemandeconsultant": 2,
+            "messagestatutdemandeconsultant": "Demande accept\u00e9e par le consultant",
             "complet": 1
+        },
+        {
+            "id": 2,
+            "mdp": "$2y$10$0CDtmIpt4T4baNxpIWPHzuEcT8ZmsnIYEgj\/dXH\/JikPabhcMYU22",
+            "nom": "h",
+            "prenom": "hh",
+            "email": "h",
+            "datenaissance": "h",
+            "reseau": "h",
+            "engagement": "h",
+            "duree": "h",
+            "savoiretre": [
+                "reflechi"
+            ],
+            "idref": [],
+            "statutdemandeconsultant": 0,
+            "messagestatutdemandeconsultant": "Demande non envoy\u00e9e au consultant",
+            "complet": 1
+        },
+        {
+            "id": 3,
+            "mdp": "$2y$10$E06RX7TN27sq4Wg2w.aJo.XkEQUxXjX6UASYfmECGU08DHNQmWmEm",
+            "nom": "m",
+            "prenom": "m",
+            "email": "m",
+            "emailconsultant": "molijacpistamoul@gmail.com",
+            "datenaissance": "m",
+            "reseau": "m",
+            "engagement": "m",
+            "duree": "m",
+            "savoiretre": [
+                "autonome",
+                "passionne",
+                "reflechi",
+                "alecoute",
+                "organise",
+                "fiable",
+                "patient",
+                "responsable",
+                "sociable",
+                "optimiste"
+            ],
+            "savoiretreref": [],
+            "idref": [
+                9
+            ],
+            "statutdemande": [
+                "En attente du r\u00e9f\u00e9rent"
+            ],
+            "commentaire": [],
+            "statutdemandeconsultant": 0,
+            "messagestatutdemandeconsultant": "Demande non envoy\u00e9e au consultant",
+            "complet": 1
+        },
+        {
+            "id": 5,
+            "mdp": "$2y$10$CqI8YzRNF9edbBHYttVbu.1wlDuZ55hTOVoyPswjFH8TXIDOnlRRy",
+            "nom": "o",
+            "prenom": "o",
+            "email": "ooo@ooo.ooo",
+            "emailconultant": "",
+            "datenaissance": "27\/56\/0123",
+            "reseau": "o",
+            "engagement": "o",
+            "duree": "o",
+            "savoiretre": [
+                "autonome",
+                "fiable",
+                "patient"
+            ],
+            "savoiretreref": [],
+            "idref": [
+                10
+            ],
+            "statutdemande": [
+                "Demande valid\u00e9e par le r\u00e9f\u00e9rent",
+                "En attente du r\u00e9f\u00e9rent"
+            ],
+            "commentaire": [],
+            "statutdemandeconsultant": 2,
+            "messagestatutdemandeconsultant": "Demande accept\u00e9e par le consultant",
+            "complet": 1,
+            "emailconsultant": "belliere.theo@outlook.fr"
+        },
+        {
+            "idref": null,
+            "savoiretreref": null,
+            "commentaire": null
         }
     ],
     "compteref": [
         {
             "id": 0,
             "nom": "b",
-            "prenom": "b",
+            "prenom": "bb",
             "email": "b",
             "datenaissance": "b",
             "reseau": "b",
@@ -55,8 +282,8 @@
             "duree": "b",
             "savoiretre": [
                 "bienveillance",
-                "respect",
-                "honnetete"
+                "honnetete",
+                "tolerance"
             ],
             "idjeune": [
                 0
@@ -90,7 +317,7 @@
             "presentation": "e",
             "duree": "e",
             "savoiretre": [
-                "confiance",
+                "respect",
                 "travail"
             ],
             "idjeune": [
@@ -116,8 +343,126 @@
                 0,
                 1
             ]
+        },
+        {
+            "id": 4,
+            "nom": "g",
+            "prenom": "g",
+            "email": "g",
+            "datenaissance": "g",
+            "reseau": "g",
+            "presentation": "g",
+            "duree": "g",
+            "savoiretre": [
+                "bienveillance"
+            ],
+            "idjeune": [
+                0
+            ]
+        },
+        {
+            "id": 5,
+            "nom": "i",
+            "prenom": "i",
+            "email": "i",
+            "datenaissance": "i",
+            "reseau": "i",
+            "presentation": "i",
+            "duree": "i",
+            "savoiretre": [
+                "confiance",
+                "bienveillance",
+                "respect",
+                "honnetete",
+                "tolerance",
+                "juste",
+                "impartial"
+            ],
+            "idjeune": [
+                0
+            ]
+        },
+        {
+            "id": 6,
+            "nom": "j",
+            "prenom": "j",
+            "email": "j",
+            "datenaissance": "j",
+            "reseau": "j",
+            "presentation": "j",
+            "duree": "j",
+            "savoiretre": [
+                "bienveillance",
+                "respect"
+            ],
+            "idjeune": [
+                0
+            ]
+        },
+        {
+            "id": 7,
+            "nom": "k",
+            "prenom": "kkkkkkkkkkkkk",
+            "email": "k",
+            "datenaissance": "kk",
+            "reseau": "k",
+            "presentation": "k",
+            "duree": "k",
+            "savoiretre": [
+                "travail"
+            ],
+            "idjeune": [
+                0
+            ]
+        },
+        {
+            "id": 8,
+            "nom": "l",
+            "prenom": "l",
+            "email": "belliere.theo@outlook.fr",
+            "datenaissance": "l",
+            "reseau": "l",
+            "presentation": "l",
+            "duree": "l",
+            "savoiretre": [
+                "respect",
+                "impartial",
+                "travail"
+            ],
+            "idjeune": [
+                0
+            ]
+        },
+        {
+            "id": 9,
+            "nom": "n",
+            "prenom": "n",
+            "email": "jeanlemermoud@gmail.com",
+            "datenaissance": "n",
+            "reseau": "n",
+            "presentation": "n",
+            "duree": "n",
+            "idjeune": [
+                3
+            ]
+        },
+        {
+            "id": 10,
+            "nom": "p",
+            "prenom": "p",
+            "email": "terrainnom62@gmail.com",
+            "datenaissance": "02\/02\/0202",
+            "reseau": "p",
+            "presentation": "p",
+            "duree": "p",
+            "idjeune": [
+                5
+            ],
+            "savoiretre": [
+                "respect"
+            ]
         }
     ],
-    "prochain_id_jeune": 2,
-    "prochain_id_referent": 4
+    "prochain_id_jeune": 6,
+    "prochain_id_referent": 11
 }

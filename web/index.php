@@ -2,7 +2,7 @@
 <html>
     <head>
         <title> Jeunes 6.4 </title>
-        <link rel="stylesheet" type="text/css" href="../css/style.css" >
+        <link rel="stylesheet" type="text/css" href="/css/style.css" >
     </head>
     <body style="margin: 0;">
         <div class="degrade-horizontal"> 
@@ -10,9 +10,9 @@
         <br/>
         <br/>
             <p class="bloc1"> Pour faire de l’engagement une valeur ! </p>
-            <img class="bloc2" src="G:\Préing 2\Projet_Jeune/LOGOS JEUNES.png" alt="Logo Jeune" />  
+            <img class="bloc2" src="/img/LOGOS JEUNES.png" alt="Logo Jeune" />  
             <p class="bloc3"> ... l’expression d’un potentiel, la promesse d’une richesse ! </p>
-            <p class="bloc4"> ENTRER </p>
+            <p class="bloc4"><a href="/web/accueil.php"> ENTRER </a></p>
             <br/>
             <br/>
             <br/>

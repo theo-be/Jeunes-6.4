@@ -1,13 +1,16 @@
 <?php
 
+// formulaire complet d'inscription du jeune
+
 if (!isset($_SESSION)) session_start();
 
 echo '
-<form action="../php/inscriptionjeune.php" method="post">
+<form action="/php/inscriptionjeune.php" method="post">
     nom* <input type="text" name="nom" id="nom" required="required" value="'.$_SESSION["nom"].'">
     prenom* <input type="text" name="prenom" id="prenom" required="required" value="'.$_SESSION["prenom"].'">
     date de naissance* <input type="text" name="datenaissance" id="datenaissance" required="required" value="'.$_SESSION["datenaissance"].'">
     email* <input type="text" name="email" id="email" required="required" value="'.$_SESSION["email"].'">
+    emailconsultant* <input type="text" name="emailconsultant" id="emailconsultant" required="required" value="'.$_SESSION["emailconsultant"].'">
     reseau* <input type="text" name="reseau" id="reseau" required="required" value="'.$_SESSION["reseau"].'">
     engagement* <input type="text" name="engagement" id="engagement" required="required" value="'.$_SESSION["engagement"].'">
     duree* <input type="text" name="duree" id="duree" required="required" value="'.$_SESSION["duree"].'">
@@ -21,9 +24,13 @@ echo '
     patient<input type="checkbox" name="savoiretre[]" id="patient" value="patient"' . (in_array("confiance", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
     responsable<input type="checkbox" name="savoiretre[]" id="responsable" value="responsable"' . (in_array("responsable", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
     sociable<input type="checkbox" name="savoiretre[]" id="sociable" value="sociable"' . (in_array("sociable", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
-    optimiste<input type="checkbox" name="savoiretre[]" id="optimiste" value="optimiste"' . (in_array("optimiste", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>                    <input type="submit" value="Envoyer">
+    optimiste<input type="checkbox" name="savoiretre[]" id="optimiste" value="optimiste"' . (in_array("optimiste", $_SESSION["savoiretre"]) ? 'checked="checked"' : '') . '>
+    <input type="submit" value="Envoyer">
 </form>
 ';
 
 
 ?>
+
+
+

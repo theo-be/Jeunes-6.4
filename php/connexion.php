@@ -27,6 +27,7 @@ if (!isset($_POST["email"])) {
             $_SESSION["nom"] = $bdd->comptejeune[$idjeune]->nom;
             $_SESSION["prenom"] = $bdd->comptejeune[$idjeune]->prenom;
             $_SESSION["email"] = $bdd->comptejeune[$idjeune]->email;
+            $_SESSION["emailconsultant"] = $bdd->comptejeune[$idjeune]->emailconsultant;
             $_SESSION["datenaissance"] = $bdd->comptejeune[$idjeune]->datenaissance;
             $_SESSION["reseau"] = $bdd->comptejeune[$idjeune]->reseau;
             $_SESSION["savoiretre"] = $bdd->comptejeune[$idjeune]->savoiretre;
@@ -77,7 +78,7 @@ if (!isset($_POST["email"])) {
 }
 
 
-header("Location: ../web/jeune.php");
+header("Location: /web/jeune.php");
 
 
 ?>
