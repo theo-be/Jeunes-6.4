@@ -6,6 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>referent</title>
     <link href="/css/referent.css" rel="stylesheet">
+
+    <title> limitCoche</title>
+<script>
+     function limitCheckboxSelection() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var checkedCount = 0;
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    checkedCount++;
+                }
+            }
+
+            if (checkedCount >= 4) {
+                for (var i = 0; i < checkboxes.length; i++) {
+                    if (!checkboxes[i].checked) {
+                        checkboxes[i].disabled = true;
+                    }
+                }
+            } else {
+                for (var i = 0; i < checkboxes.length; i++) {
+                    checkboxes[i].disabled = false;
+                }
+            }
+        }
+    </script>
+
 </head>
 <body>
 <br><br>
@@ -49,14 +76,14 @@
 
       <form>
       <div class="coche-referent">
-        <input type="checkbox" id="Confiance" class="case-coche"><label for="Confiance">Confiance</label><br>
-        <input type="checkbox" id="Bienveillance" class="case-coche"><label for="Bienveillance">Bienveillance</label><br>
-        <input type="checkbox" id="Respect" class="case-coche"><label for="Respect">Respect</label><br>
-        <input type="checkbox" id="Honnêteté" class="case-coche"><label for="Honnêteté">Honnêteté</label><br>
-        <input type="checkbox" id="Tolérance" class="case-coche"><label for="Tolérance">Tolérance</label><br>
-        <input type="checkbox" id="Juste" class="case-coche"><label for="Juste">Juste</label><br>
-        <input type="checkbox" id="Impartial" class="case-coche"><label for="Impartial">Impartial</label><br>
-        <input type="checkbox" id="Travail" class="case-coche"><label for="Travail">Travail</label><br>
+        <input type="checkbox" id="Confiance" class="case-coche" onchange="limitCheckboxSelection()"><label for="Confiance">Confiance</label><br>
+        <input type="checkbox" id="Bienveillance" class="case-coche" onchange="limitCheckboxSelection()"><label for="Bienveillance">Bienveillance</label><br>
+        <input type="checkbox" id="Respect" class="case-coche" onchange="limitCheckboxSelection()"><label for="Respect">Respect</label><br>
+        <input type="checkbox" id="Honnêteté" class="case-coche" onchange="limitCheckboxSelection()"><label for="Honnêteté">Honnêteté</label><br>
+        <input type="checkbox" id="Tolérance" class="case-coche" onchange="limitCheckboxSelection()"><label for="Tolérance">Tolérance</label><br>
+        <input type="checkbox" id="Juste" class="case-coche" onchange="limitCheckboxSelection()"><label for="Juste">Juste</label><br>
+        <input type="checkbox" id="Impartial" class="case-coche" onchange="limitCheckboxSelection()"><label for="Impartial">Impartial</label><br>
+        <input type="checkbox" id="Travail" class="case-coche" onchange="limitCheckboxSelection()"><label for="Travail">Travail</label><br>
       </div>
 
       <div class="choix">
