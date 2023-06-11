@@ -13,16 +13,16 @@ $_SESSION["messageerreur"] = "";
 // verification des donnees d'entree
 // donees minimum necessaires
 if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaissance"]) && isset($_POST["email"]))) { 
-    // erreur
+    // erreur données manquantes
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : formulaire corompu";
 } else if ((isset($_POST["email"]) && !preg_match('#([0-9a-z]){3,}@([a-z]){2,}.([a-z]){2,4}$#i', $_POST["email"])) || 
 (isset($_POST["emailconsultant"]) && !preg_match('#([0-9a-z]){3,}@([a-z]){2,}.([a-z]){2,4}$#i', $_POST["emailconsultant"]))) {
-    // erreur
+    // erreur email
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : addresse email dans la mauvais format";
-} else if ((isset($_POST["email"]) && !preg_match('#^([0-9]{2}/){2}[0-9]{4}$#', $_POST["datenaissance"]))) {
-    // erreur
+} else if ((isset($_POST["datenaissance"]) && !preg_match('#^([0-9]{2}/){2}[0-9]{4}$#', $_POST["datenaissance"]))) {
+    // erreur date de naissance
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : date de naissance dans le mauvais format, format JJ/MM/AAAA";
 } elseif ($_POST["mdp"] != $_POST["mdpc"]) { // si les mdp ne sont pas les memes
@@ -49,6 +49,7 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
     // s'il n'y a pas d'erreur
     if (!$_SESSION["erreur"]) {
 
+        // inscription dans la base de données
         $compte = new CompteJeune();
         $compte->id = $bdd->prochain_id_jeune++;
         $compte->mdp = password_hash($_POST["mdp"], PASSWORD_DEFAULT);
@@ -59,6 +60,7 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
         $compte->datenaissance = htmlspecialchars(trim($_POST["datenaissance"]));
 
 
+        // copie dans les variables de session
 
         $_SESSION["nom"] = htmlspecialchars(trim($_POST["nom"]));
         $_SESSION["prenom"] = htmlspecialchars(trim($_POST["prenom"]));
@@ -86,6 +88,8 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
         $_SESSION["presentationref"] = "";
         $_SESSION["dureeref"] = "";
         $_SESSION["savoiretreref"] = [];
+        
+        // sauvegarde
 
         array_push($bdd->comptejeune, $compte);
         $contenufichier = json_encode($bdd, JSON_PRETTY_PRINT);
