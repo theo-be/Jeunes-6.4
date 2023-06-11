@@ -8,6 +8,9 @@ if (!isset($_SESSION["erreur"]))
 
 if (!isset($_SESSION["messageerreur"]))
     $_SESSION["messageerreur"] = "";
+if (!isset($_SESSION["nbreferent"]))
+    $_SESSION["nbreferent"] = 0;
 
+    
 
 ?>

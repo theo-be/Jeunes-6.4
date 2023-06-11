@@ -158,7 +158,7 @@ require_once "../php/cherchecompte.php";
                                 </div>
                                 ';
                                 // commentaire du referent sur le jeune et cases a cocher
-                                for ($k = 0; $k < $taillecommentaire; $k++) {
+                                for ($k = 0; $k < $taillecommentaire ; $k++) {
                                     // cases a cocher
                                     if ($bdd->comptejeune[$idjeune]->savoiretreref[$k]->de == $bdd->compteref[$j]->id) {
                                         echo '<div class="petite-case">
@@ -194,7 +194,6 @@ require_once "../php/cherchecompte.php";
                                     // commentaire
                                     if ($bdd->comptejeune[$idjeune]->commentaire[$k]->de == $bdd->compteref[$j]->id) {
                                         echo '<span class="texte">commentaire : ' . $bdd->comptejeune[$idjeune]->commentaire[$k]->texte.'</span>';
-                                        break;
                                     }
                                 }
                             echo '</div>';

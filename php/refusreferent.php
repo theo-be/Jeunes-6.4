@@ -1,5 +1,6 @@
 <?php
 require_once "cherchecompte.php";
+require_once 'envoimail.php';
 
 session_start();
 
@@ -25,6 +26,10 @@ $bdd->comptejeune[$indexjeune]->statutdemande[$indexrefdansjeune] = "Demande ref
 
 
 
+// envoyermail($bdd->comptejeune[$indexjeune]->email, "jeuneref", "Votre demande de référencement", '');
+
+
+
 // sauvegarde
 $contenufichier = json_encode($bdd, JSON_PRETTY_PRINT);
 file_put_contents("../data/bdd.json", $contenufichier);
@@ -32,6 +37,7 @@ file_put_contents("../data/bdd.json", $contenufichier);
 
 $contenutoken = json_encode($token, JSON_PRETTY_PRINT);
 file_put_contents("../data/token.json", $contenutoken);
+
 
 require_once "deconnexion.php";
 

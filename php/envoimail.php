@@ -12,7 +12,7 @@ require '../vendor/autoload.php';
 
 
 
-function envoyermail ($vers, $type, $objet, $token) {
+function envoyermail ($vers, $type, $objet, $token = "") {
 
     //Create an instance; passing `true` enables exceptions
     $mail = new PHPMailer(true);
@@ -45,44 +45,65 @@ function envoyermail ($vers, $type, $objet, $token) {
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = $objet;
-        if ($type == "referent")
-        $intro = "Bonjour,
-<br>
-        Nous sommes un dispositif de valorisation de l’engagement des jeunes en Pyrénées-Atlantiques soutenu par l’État, le Conseil Général, le Conseil Régional, les CAF Béarn-Soule et Pays Basque, la MSA, la CPAM.
-        <br>
-        Nous venons à votre rencontre car un jeune ayant pratiqué une expérience professionnelle à vos côtés s’est inscrit sur notre site et aimerait avoir votre avis sur ses savoirs-êtres et savoir-faire.
-        <br>
-        En cliquant sur le lien ci-dessous vous serez redirigé vers notre site Jeunes 6.4 où vous retrouverez toutes les informations du jeune en question. Ce système permet aux jeunes qui font un travail sérieux et de qualité d’avoir un CV plus fiable qui se démarque aux yeux des recruteurs.
-        <br>
-        Merci d’avance pour votre temps.
-        <br>
-        Cordialement,<br>
-        L’équipe Jeunes 6.4" 
-        elseif ($type == "consultant") $intro = "Bonjour,
-<br>
-        Nous sommes un dispositif de valorisation de l’engagement des jeunes en Pyrénées-Atlantiques soutenu par l’État, le Conseil Général, le Conseil Régional, les CAF Béarn-Soule et Pays Basque, la MSA, la CPAM.
-        <br>
-        Nous venons à votre rencontre car un Jeune s’intéressant à votre entreprise s’est inscrit sur notre site et aimerait avoir votre avis sur son profil professionnel.
-        <br>
-        En cliquant sur le lien ci-dessous vous serez redirigé vers notre site Jeunes 6.4 où vous retrouverez toutes les informations du jeune, ainsi que les informations sur les personnes qui l’ont référencé, ce qui vous permettra de les contacter afin d’en apprendre plus sur les qualités du jeune.
-        Merci d’avance pour votre temps.
-<br>
-        Cordialement,<br>
-        L’équipe Jeunes 6.4";
-        else $intro = "Bonjour,<br>
+        if ($type == "referent"){
+            $intro = "Bonjour,
+            <br>
+            Nous sommes un dispositif de valorisation de l’engagement des jeunes en Pyrénées-Atlantiques soutenu par l’État, le Conseil Général, le Conseil Régional, les CAF Béarn-Soule et Pays Basque, la MSA, la CPAM.
+            <br>
+            Nous venons à votre rencontre car un jeune ayant pratiqué une expérience professionnelle à vos côtés s’est inscrit sur notre site et aimerait avoir votre avis sur ses savoirs-êtres et savoir-faire.
+            <br>
+            En cliquant sur le lien ci-dessous vous serez redirigé vers notre site Jeunes 6.4 où vous retrouverez toutes les informations du jeune en question. Ce système permet aux jeunes qui font un travail sérieux et de qualité d’avoir un CV plus fiable qui se démarque aux yeux des recruteurs.
+            <br>
+            Merci d’avance pour votre temps.
+            <br>
+            Cordialement,<br>
+            L’équipe Jeunes 6.4";
+            $mail->Body    = $intro . ' <a href="192.168.1.9/web/'.$type.'.php/?t='.$token.'">192.168.1.9/web/'.$type.'.php/?t='.$token.'</a>';
+        }
+        elseif ($type == "consultant") {
+            $intro = "Bonjour,
+            <br>
+            Nous sommes un dispositif de valorisation de l’engagement des jeunes en Pyrénées-Atlantiques soutenu par l’État, le Conseil Général, le Conseil Régional, les CAF Béarn-Soule et Pays Basque, la MSA, la CPAM.
+            <br>
+            Nous venons à votre rencontre car un Jeune s’intéressant à votre entreprise s’est inscrit sur notre site et aimerait avoir votre avis sur son profil professionnel.
+            <br>
+            En cliquant sur le lien ci-dessous vous serez redirigé vers notre site Jeunes 6.4 où vous retrouverez toutes les informations du jeune, ainsi que les informations sur les personnes qui l’ont référencé, ce qui vous permettra de les contacter afin d’en apprendre plus sur les qualités du jeune.
+            Merci d’avance pour votre temps.
+            <br>
+            Cordialement,<br>
+            L’équipe Jeunes 6.4";
+            $mail->Body    = $intro . '<a href="192.168.1.9/web/'.$type.'.php/?t='.$token.'">192.168.1.9/web/'.$type.'.php/?t='.$token.'</a>';
+        }
+        elseif ($type == "jeuneref") {
+            $intro = "Bonjour,<br>
 
-        Nous avons la satisfaction de vous informer que l’une de vos demandes de référencement à été validée. Ce référencement sera donc confirmé dans votre profil et il apparaîtra lorsque vous ferez une demande de consultation.
-        <br>
-        Au plaisir de vous revoir sur notre site.
-        
-        
-        Cordialement,<br>
-        
-        L’équipe Jeunes 6.4 "
+            Nous avons la satisfaction de vous informer qu'un référent a répondu à votre demande de référencement. Ce référencement a été modifié dans votre profil et il apparaîtra lorsque vous consulterez votre profil.
+            <br>
+            Au plaisir de vous revoir sur notre site.<br>
+            
+            
+            Cordialement,<br>
+            
+            L'équipe Jeunes 6.4 ";
+            $mail->Body    = $intro . '<a href="192.168.1.9/web/jeune.php/">192.168.1.9/web/jeune.php/</a>';
+        }
+        elseif ($type == "jeunecon") {
+            $intro = "Bonjour,<br>
+
+            Nous avons la satisfaction de vous informer qu'un consultant a répondu à votre demande de consultation. Cette consultation a été modifiée dans votre profil et elle apparaîtra lorsque vous consulterez votre profil.
+            <br>
+            Au plaisir de vous revoir sur notre site.<br>
+            
+            
+            Cordialement,<br>
+            
+            L'équipe Jeunes 6.4 ";
+            $mail->Body = $intro . '<a href="192.168.1.9/web/jeune.php/">192.168.1.9/web/jeune.php/</a>';
+        }
 
 
 
-        $mail->Body    = $intro . '<a href="192.168.1.9/web/'.$type.'.php/?t='.$token.'">192.168.1.9/web/'.$type.'.php/?t='.$token.'</a>';
+        // $mail->Body    = $intro . '<a href="192.168.1.9/web/'.$type.'.php/?t='.$token.'">192.168.1.9/web/'.$type.'.php/?t='.$token.'</a>';
         $mail->AltBody = 'le site : 192.168.1.9/, token : '.$token;
 
         $mail->send();

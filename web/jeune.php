@@ -97,12 +97,6 @@
                 </div></form>
             ';
 
-
-            // message d'erreur pour les formulaires
-            echo '<p>';
-            echo $_SESSION["messageerreur"];
-            echo '</p>';
-
         } elseif ($_SESSION["statut_client"] == "jeune") {
             
             // cahrgement de la base de donees
@@ -115,7 +109,7 @@
             ';
             if (!$_SESSION["comptecomplet"]) {
                 // compte incomplet
-                echo "<p>Votre compte n'est pas complet, noua avons besoin d'informations supplémentaires:</p>";
+                // echo "<p>Votre compte n'est pas complet, noua avons besoin d'informations supplémentaires:</p>";
                 require "../php/formulaireinscriptioncomplet.php";
                 
                 // message d'erreur pour les formulaires
@@ -135,6 +129,7 @@
                 // bouton modifier son compte
                 echo '
                 <button id="modifiercompte">Modifier les informations de mon compte</button>
+                <button id="pdf">Exporter en pdf</button>
                 ';
 
                 // affichage de l'etat de la demande pour le consultant

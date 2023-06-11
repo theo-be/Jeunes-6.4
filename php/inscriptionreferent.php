@@ -27,6 +27,9 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
     $bdd = json_decode($contenufichier, false);
 
     
+    $contenutoken = file_get_contents("../data/token.json");
+    $token = json_decode($contenutoken, false);
+    $t = '';
     $idjeune = $_SESSION["idcompte"];
     $idreferent = chercheCompteReferent($bdd, $_POST["emailref"]);
 
@@ -52,6 +55,7 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
         $contenutoken = file_get_contents("../data/token.json");
         $token = json_decode($contenutoken, false);
 
+
         // creation du jeton
         $t = creerToken($token, $referent->idjeune[0], $referent->id, "referent");
 
@@ -59,12 +63,11 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
         $indexjeune = chercheCompteJeuneParId($bdd, $idjeune);
         array_push($bdd->comptejeune[$indexjeune]->statutdemande, "En attente du référent");
 
-        // sauvegarde
-        $contenutoken = json_encode($token, JSON_PRETTY_PRINT);
-        file_put_contents("../data/token.json", $contenutoken);
 
 
     } else { // s'il en a un
+        // echo var_dump($bdd);
+        $indexjeune = chercheCompteJeuneParId($bdd, $idjeune);
         $bdd->compteref[$idreferent]->nom = htmlspecialchars(trim($_POST["nomref"]));
         $bdd->compteref[$idreferent]->prenom = htmlspecialchars(trim($_POST["prenomref"]));
         $bdd->compteref[$idreferent]->email = htmlspecialchars(trim($_POST["emailref"]));
@@ -72,11 +75,17 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
         $bdd->compteref[$idreferent]->reseau = htmlspecialchars(trim($_POST["reseauref"]));
         $bdd->compteref[$idreferent]->presentation = htmlspecialchars(trim($_POST["presentationref"]));
         $bdd->compteref[$idreferent]->duree = htmlspecialchars(trim($_POST["dureeref"]));
-        $bdd->compteref[$idreferent]->savoiretre = $_POST["savoiretreref"];
 
-        $indexjeune = chercheCompteJeuneParId($bdd, $idjeune);
+        // $strucsavoiretreref = new stdClass;
+        // $strucsavoiretreref->de = $bdd->compteref[$idreferent]->id;
+        // $strucsavoiretreref->savoiretre = $_POST["savoiretreref"];
+        // array_push($bdd->comptejeune[$indexjeune]->savoiretreref, $strucsavoiretreref);
 
 
+
+
+        // creation du jeton
+        $t = creerToken($token, $idjeune, $bdd->compteref[$idreferent]->id, "referent");
 
 
     
@@ -114,6 +123,9 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
     // sauvegarde
     $contenufichier = json_encode($bdd, JSON_PRETTY_PRINT);
     file_put_contents("../data/bdd.json", $contenufichier);
+
+    $contenutoken = json_encode($token, JSON_PRETTY_PRINT);
+    file_put_contents("../data/token.json", $contenutoken);
 
     // envoi du mail
     envoyermail($_POST["emailref"], "referent", "Demande de référencement", $t);

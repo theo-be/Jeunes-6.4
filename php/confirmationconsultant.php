@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+require_once "envoimail.php";
 // securite
 if ($_SESSION["statut_client"] != "consultant")
     header("Location: /web/");
@@ -29,6 +29,7 @@ $bdd->comptejeune[$_SESSION["idjeune"]]->messagestatutdemandeconsultant = "Deman
 $token->token[$_SESSION["tokenid"]]->etat = "complet";
 
 
+// envoyermail($bdd->comptejeune[$_SESSION["idjeune"]]->email, "jeunecon", "Votre demande de consultation", '');
 
 
 

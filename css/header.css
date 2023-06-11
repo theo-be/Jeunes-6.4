@@ -48,7 +48,7 @@ body{              /* Réinitialisation des marges et des espacements */
 .page{
     background: linear-gradient(to right , #b8b8b8 , #f5f5f5 17%, #b8b8b8 );
     height: 50px;
-    margin-top: 0;
+    /* margin-top: 0; */
     /* margin-right: 25% ; */
     /* margin-left: 25%; */
     display: flex;

@@ -4,6 +4,7 @@ require_once "verifsession.php";
 require_once "Compte.php";
 require_once "cherchecompte.php";
 require_once "creertoken.php";
+require_once "envoimail.php";
 
 
 // Verification des infos
@@ -48,12 +49,14 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
     $struc_savoiretreref = new stdClass();
     $struc_savoiretreref->de = $idreferent;
     $struc_savoiretreref->savoiretre = $_POST["savoiretreref"];
-    array_push($bdd->comptejeune[$idjeune]->savoiretreref, $struc_savoiretreref);
+    if ($bdd->comptejeune[$indexjeune]->savoiretreref)
+    array_push($bdd->comptejeune[$indexjeune]->savoiretreref, $struc_savoiretreref);
+    else $bdd->comptejeune[$indexjeune]->savoiretreref = array($struc_savoiretreref);
 
     $struc_commentaire = new stdClass();
     $struc_commentaire->de = $idreferent;
     $struc_commentaire->texte = htmlspecialchars($_POST["commentaire"]);
-    array_push($bdd->comptejeune[$idjeune]->commentaire, $struc_commentaire);
+    array_push($bdd->comptejeune[$indexjeune]->commentaire, $struc_commentaire);
 
     // modification de l'état de la demande de référencement
     
@@ -61,11 +64,13 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
     $bdd->comptejeune[$indexjeune]->statutdemande[$indexstatutdemande] = "Demande validée par le référent";
 
 
-    // detruire le jeton
+    //  modifier le jeton
 
     // array_splice($token->token, $_SESSION["idtoken"], 1);
     $token->token[$_SESSION["tokenid"]]->etat = "complet";
 
+    // envoi du mail
+    // envoyermail($bdd->comptejeune[$indexjeune]->email, "jeuneref", "Votre demande de référencement", '');
 
     // sauvegarde
     $contenufichier = json_encode($bdd, JSON_PRETTY_PRINT);

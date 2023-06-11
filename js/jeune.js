@@ -100,3 +100,9 @@ if (document.getElementById("fermerpopup")) {
         document.getElementById("pageprincipale").style.display = "block";
     });
 }
+
+if (document.getElementById("pdf")) {
+    document.getElementById("pdf").addEventListener("click", () => {
+        print();
+    })
+}

@@ -14,7 +14,7 @@
     <div class="box-partenaire">
 
     <div class="text-partenaire">
-    JEUNES 6.4 est un dispositif issu de <a href="charte.pdf">la charte de l’engagement </a>pour la <br>jeunesse signée en 2013 par des partenaires institutionnels...
+    JEUNES 6.4 est un dispositif issu de <a href="/data/charte.pdf">la charte de l’engagement </a>pour la <br>jeunesse signée en 2013 par des partenaires institutionnels...
     </div>
 
 </div>
