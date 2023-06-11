@@ -1,5 +1,5 @@
 <?php
-
+// structure de donées qui forme le modèle d'un compte dans la base de données
 class CompteJeune {
     public $id = -1;
     public $mdp = "";
