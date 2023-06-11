@@ -19,6 +19,7 @@
     <title>Jeune</title>
     <script>
      function limitCheckboxSelection() {
+         // script qui limite le nombre de cases cochées à 4
             var checkboxes = document.getElementsByClassName("coche-jeune")[0].querySelectorAll('input[type="checkbox"]');
             var checkedCount = 0;
 
@@ -53,6 +54,7 @@
 
             
         if ($_SESSION["statut_client"] != "jeune") {
+            // formulaires d'inscription et de connexion
             echo '<div class="vous-devez">
             Vous devez vous inscrire ou vous connecter
            </div>
@@ -171,15 +173,7 @@
                     ';
                 }
 
-                // echo "<p>Ajouter une demande de referencement :</p>";
-                // echo "<p>Informations du référent</p>";
-
-                // demande de ref
-                // require "../php/formulaireinscriptionreferent.php";
-
-
                 echo '</div>';
-
 
                 echo '<div id="popup">
                     <button class="fermer" id="fermerpopup">Fermer</button>
