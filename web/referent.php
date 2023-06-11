@@ -15,6 +15,7 @@ require_once "../php/cherchecompte.php";
     <link href="/css/referent.css" rel="stylesheet">
     <title>Referent</title>
     <script>
+    // script qui limite le nombre de cases cochées à 4
      function limitCheckboxSelection() {
             var checkboxes = document.getElementsByClassName("coche-referent")[0].querySelectorAll('input[type="checkbox"]');
             var checkedCount = 0;
@@ -46,8 +47,7 @@ require_once "../php/cherchecompte.php";
         require_once "../php/header.php";
 
         if (!isset($_GET["t"]) || !$_GET["t"]) {
-            // proposer à l'utilisateur de rentrer son jeton ici
-            // permet également aux autres utilisateurs de comprendre que cette page ne leur est pas destinée
+            // permet aux autres utilisateurs de comprendre que cette page ne leur est pas destinée
             echo "ERREUR : pas de token";
         } else {            
 
@@ -61,6 +61,8 @@ require_once "../php/cherchecompte.php";
             $idref = 0;
             $idjeune = 0;
 
+            // verification de l'existence du token
+            
             $trouvejeton = 0;
             for ($i = 0; $i < $nbtokens; $i++) {
                 if ($token->token[$i]->token == $_GET["t"] && $token->token[$i]->type == "referent" && $token->token[$i]->etat == "en cours") {
@@ -92,6 +94,7 @@ require_once "../php/cherchecompte.php";
                 pu constater au contact de ce jeune. <br> <br>
                 </div>';
 
+                // formulaire du référent
                 echo '
                 <form action="/php/confirmationreferencement.php" method="post">
                 <div class="boxreferent" >
