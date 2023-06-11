@@ -9,21 +9,24 @@ require_once "envoimail.php";
 
 // Verification des infos
 if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["emailref"]) && isset($_POST["datenaissanceref"]) && isset($_POST["reseauref"]) && isset($_POST["dureeref"]) && isset($_POST["presentationref"]) && isset($_POST["savoiretreref"]))) {
-    // erreur
+    // erreur donées manquantes
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : formulaire corompu";
 
 } else if (isset($_POST["email"]) && !preg_match('#([0-9a-z]){3,}@([a-z]){2,}.([a-z]){2,4}$#i', trim($_POST["email"]))) {
-    // erreur
+    // erreur email
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : addresse email dans la mauvais format";
 } else if ((isset($_POST["email"]) && !preg_match('#^([0-9]{2}/){2}[0-9]{4}$#', $_POST["datenaissance"]))) {
-    // erreur
+    // erreur date de naissance
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : date de naissance dans le mauvais format, format JJ/MM/AAAA";
 
 
 } else {
+    
+    
+    // chargement de la base de données et des tokens
     $contenufichier = file_get_contents("../data/bdd.json");
     $bdd = json_decode($contenufichier, false);
 
@@ -31,6 +34,7 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
     $contenutoken = file_get_contents("../data/token.json");
     $token = json_decode($contenutoken, false);
     
+    // actualisation des données du référent
 
     $idreferent = $_SESSION["idcompte"];
     $idjeune = $token->token[$_SESSION["tokenid"]]->idjeune;
@@ -45,6 +49,7 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
 
     $indexjeune = chercheCompteJeuneParId($bdd, $idjeune);
 
+    // structure de savoiretre
 
     $struc_savoiretreref = new stdClass();
     $struc_savoiretreref->de = $idreferent;
@@ -53,6 +58,8 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
     array_push($bdd->comptejeune[$indexjeune]->savoiretreref, $struc_savoiretreref);
     else $bdd->comptejeune[$indexjeune]->savoiretreref = array($struc_savoiretreref);
 
+    // structure de commentaire
+    
     $struc_commentaire = new stdClass();
     $struc_commentaire->de = $idreferent;
     $struc_commentaire->texte = htmlspecialchars($_POST["commentaire"]);
