@@ -43,7 +43,8 @@ function envoyermail ($vers, $type, $objet, $token = "") {
         // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
         //Content
-        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->isHTML(true);    
+        // contenu du mail                              //Set email format to HTML
         $mail->Subject = $objet;
         if ($type == "referent"){
             $intro = "Bonjour,
