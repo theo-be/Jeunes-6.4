@@ -21,7 +21,7 @@
 
     // session_start(); // Déterminez la condition pour la page en cours
     if (strstr($_SERVER['PHP_SELF'], '/web/jeune.php')) {  // Je regarde si la page courante est celle du jeune, du referent ou du consultant
-        $style1 = 'jeune';  // comme je suis dans le jeune je dois modifier lapparence du bandeau
+        $style1 = 'headerjeune';  // comme je suis dans le jeune je dois modifier lapparence du bandeau
         $style2 = 'default_2'; // la partie referent et consultant ne sont pas impacte donc je les laisse comme ils sont
         $style3 = 'default_3';
         echo '<div class="contenu_banniere">';
@@ -41,7 +41,7 @@
     }
     else if(strstr($_SERVER['PHP_SELF'], '/web/referent.php')){ // je refais la meme verification avec la partie referent 
         $style1 = 'default_1';
-        $style2 = 'referent';
+        $style2 = 'headerreferent';
         $style3 = 'default_3';
         echo '<div class="contenu_banniere">';
         echo '<a href="/web/accueil.php" class="bloc1"><img src="/img/LOGOS JEUNES.png" alt="Logo Jeune" /></a>'; 
@@ -60,7 +60,7 @@
     else if(strstr($_SERVER['PHP_SELF'], '/web/consultant.php')){ // enfin je fais la derniere verification pour la partie consultant
         $style1 = 'default_1';
         $style2 = 'default_2';
-        $style3 = 'consultant';
+        $style3 = 'headerconsultant';
         echo '<div class="contenu_banniere">';
         echo '<a href="/web/accueil.php" class="bloc1"><img src="/img/LOGOS JEUNES.png" alt="Logo Jeune" /></a>'; 
         echo '<div class="bloc2">';

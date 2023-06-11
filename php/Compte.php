@@ -6,7 +6,7 @@ class CompteJeune {
     public $nom = "";
     public $prenom = "";
     public $email = "";
-    public $emailconultant = "";
+    public $emailconsultant = "";
     public $datenaissance = "";
     public $reseau = "";
     public $engagement = "";

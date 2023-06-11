@@ -35,5 +35,5 @@ file_put_contents("../data/token.json", $contenutoken);
 
 require_once "deconnexion.php";
 
-header("Location: /web/referent.php");
+header("Location: /web/remerciements.php");
 ?>

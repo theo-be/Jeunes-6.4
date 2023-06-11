@@ -79,6 +79,6 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
 
 require_once "deconnexion.php";
 
-header("Location: /web/referent.php");
+header("Location: /web/remerciements.php");
 
 ?>

@@ -11,7 +11,12 @@ body{              /* Réinitialisation des marges et des espacements */
     background: linear-gradient(to right , #b8b8b8 , #f5f5f5 17%, #b8b8b8 );
 }
 
-.bloc1, .bloc1 *{
+
+.contenu_banniere img {
+    width: 250px;
+    height: 250px;
+}
+.bloc1{
     height: 100%;
     width: 215px;
     margin-left: 40px;
@@ -44,10 +49,12 @@ body{              /* Réinitialisation des marges et des espacements */
     background: linear-gradient(to right , #b8b8b8 , #f5f5f5 17%, #b8b8b8 );
     height: 50px;
     margin-top: 0;
-    margin-right: 25% ;
-    margin-left: 25%;
+    /* margin-right: 25% ; */
+    /* margin-left: 25%; */
     display: flex;
     justify-content: space-evenly;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .default_1{
@@ -74,7 +81,7 @@ body{              /* Réinitialisation des marges et des espacements */
     color: rgb(19,159,227);
 }
 
-.partenaires, .partenaires * {
+.partenaires{
     font-size: 25px;
     padding-top: 12px;
     padding-bottom: 5px;
@@ -82,7 +89,7 @@ body{              /* Réinitialisation des marges et des espacements */
     color: rgb(112,111,117);
 }
 
-.jeune, .jeune * {
+.headerjeune{
     font-style: italic;
     font-weight: bold;
     text-transform: uppercase;
@@ -90,13 +97,25 @@ body{              /* Réinitialisation des marges et des espacements */
     padding-top: 12px;
     padding-bottom: 10px;
     font-size: 25px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-radius: 15px;
     border-color: #b8b8b8;
 }
 
-.referent, .referent * {
+.jeune2{
+    color:#EF037F;
+}
+
+.referent2{
+    color: rgb(19,165,56);
+}
+
+.consultant2{
+    color: rgb(19,159,227);
+}
+
+.headerreferent{
     font-style: italic;
     font-weight: bold;
     text-transform: uppercase;
@@ -104,13 +123,13 @@ body{              /* Réinitialisation des marges et des espacements */
     padding-top: 12px;
     padding-bottom: 10px;
     font-size: 25px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-radius: 15px;
     border-color: #b8b8b8;
 }
 
-.consultant, .consultant * {
+.headerconsultant{
     font-style: italic;
     font-weight: bold;
     text-transform: uppercase;
@@ -118,7 +137,7 @@ body{              /* Réinitialisation des marges et des espacements */
     padding-top: 12px;
     padding-bottom: 10px;
     font-size: 25px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-radius: 15px;
     border-color: #b8b8b8;
@@ -132,12 +151,3 @@ body{              /* Réinitialisation des marges et des espacements */
     color: inherit;
     text-decoration: none;
 }
-
-/* $session nom de la page egale nom page
-header si cette page alors cette classe donc ce css
-header .php est test.html garde que header
-
-class::
-bandeau : background, image, margin
-banniere : 4 categories, couleurs associées, margin, background
-*/

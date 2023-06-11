@@ -28,6 +28,9 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
 } elseif ($_POST["mdp"] != $_POST["mdpc"]) { // si les mdp ne sont pas les memes
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "Erreur : les mots de passe sont différents";
+} elseif (strlen($_POST["mdp"]) < 8) { // si le mdp fait moins de huit caracteres
+    $_SESSION["erreur"] = 1;
+    $_SESSION["messageerreur"] = "Erreur : le mot de passe fait moins de huit caractères";
 } else {
     $_SESSION["erreur"] = 0;
     $_SESSION["messageerreur"] = "";

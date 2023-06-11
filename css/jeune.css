@@ -1,63 +1,44 @@
-.background-container {
-    position: relative;
-    width: 100%;
-    height: 500px; /* Ajustez la hauteur selon vos besoins */
-  }
+html * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
-  .background-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px; /* Ajustez la largeur selon vos besoins */
-    height: 200px; /* Ajustez la hauteur selon vos besoins */
-    background-image: url('/home/cy/Documents/DevWeb/Projet/rose.png');
+body{
+    background-image: url('/img/logorose.png');
+    background-position: 50% 350px;
     background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-
-
-
-
-
-.boxjeune_consultant{
-    position: absolute;
-    top: 40%;
-    left: 5%;
-    width:45%;
-    height: 400px;
-    border:4px solid rgb(230, 0, 126);
-    font-size:2vh;
-    color:rgb(118, 113, 113);
-    padding : 20px;
-}
-
-
-.Jeune{
-    font-size: 3vh;
-    color: rgb(230, 0, 126);
-    line-height: 1.5;
-}
-
-.boxjeune{
+    background-size: 50%;
     
-    margin: auto;
-    width:35%;
-    height: 450px;
-    border:4px solid rgb(230, 0, 126);
-    font-size:2vh;
-    color:rgb(118, 113, 113);
-    padding : 20px;
 }
+
+
 
 .textejeune{
     margin:auto;
     width: 52%;
-    font-size:4vh;
+    font-size:50PX;
     color:rgb(230, 0, 126);
 }
 
-.boxradio-jeune{
+.boxjeune{
+    background-color: white;
+    margin: auto;
+    width:35%;
+    height: 450px;
+    border:4px solid rgb(230, 0, 126);
+    padding : 20px;
+}
+
+.Jeune{
+    font-size: 38px;
+    color: rgb(230, 0, 126);
+    line-height: 1.5;
+}
+
+
+.boxdroite-jeune{
    margin-right: 2%;
    margin-left:85%;
    margin-top: -500px;
@@ -71,7 +52,7 @@
     letter-spacing: -3px;
 }
 
-.boxdroite-jeune{
+.boxconfirme-jeune{
     height: 60px;  
     background: linear-gradient(to right, white, rgb(230, 0, 126));
     color:white;
@@ -83,14 +64,14 @@
 
 .coche-jeune{
     padding-left:10%;
-    background-color: rgb(252, 238, 238);
+    background-image: radial-gradient(circle at 0% 0%, rgb(253, 243, 251), rgb(252, 238, 238));
     height: 600px;
     font-size: 45px;
 }
 
 .case-coche{
-    
-    scale:2.8;
+     
+    scale:3;
     margin-right: 20px;
     
 }
@@ -116,4 +97,19 @@
     height: 60px;
     color:white;
     font-size: 35px;
+}
+
+.boitereferent {
+    background-color: #fff;
+    border: 2px solid rgb(230, 0, 126);
+    flex-basis: 40%;
+    margin: 50px 0;
+    padding: 20px;
+}
+
+.listereferents {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }

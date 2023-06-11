@@ -37,6 +37,4 @@ function chercheCompteReferentParId ($bdd, $id) {
 }
 
 
-
-
 ?>
