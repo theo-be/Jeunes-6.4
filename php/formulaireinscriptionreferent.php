@@ -23,7 +23,7 @@ if (isset($_GET["prerempli"]) && $_GET["prerempli"] && isset($_GET["email"])) {
     $prerempli = 1;
 }
 
-// si on veut modifier un compte existant
+// si on veut afficher un compte existant
 if ($prerempli) {
 // formulaire prerempli
     $indexref = array_search($bdd->compteref[$idreferent]->id, $bdd->comptejeune[$idjeune]->idref);
