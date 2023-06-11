@@ -5,16 +5,16 @@ require_once "Compte.php";
 require_once "cherchecompte.php";
 
 if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaissance"]) && isset($_POST["email"]) & isset($_POST["engagement"]) && isset($_POST["duree"]) && isset($_POST["savoiretre"]))) {
-    // erreur
+    // erreur données manquantes
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : formulaire corompu";
 } else if ((isset($_POST["email"]) && !preg_match('#([0-9a-z]){3,}@([a-z]){2,}.([a-z]){2,4}$#i', $_POST["email"])) || 
 (isset($_POST["emailconsultant"]) && !preg_match('#([0-9a-z]){3,}@([a-z]){2,}.([a-z]){2,4}$#i', $_POST["emailconsultant"]))) {
-    // erreur
+    // erreur email
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : addresse email dans la mauvais format";
 } else if ((isset($_POST["email"]) && !preg_match('#^([0-9]{2}/){2}[0-9]{4}$#', $_POST["datenaissance"]))) {
-    // erreur
+    // erreur date de naissance
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : date de naissance dans le mauvais format, format JJ/MM/AAAA";
 } else {
@@ -22,9 +22,12 @@ if (!(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["datenaiss
 
 
 
+    // chargement de la base de données
     $contenufichier = file_get_contents("../data/bdd.json");
     $bdd = json_decode($contenufichier, false);
     $idcompte = chercheCompteJeune($bdd, trim($_POST["email"]));
+    
+    // modification du compte
 
     $bdd->comptejeune[$idcompte]->nom = htmlspecialchars(trim($_POST["nom"]));
     $bdd->comptejeune[$idcompte]->prenom = htmlspecialchars(trim($_POST["prenom"]));
