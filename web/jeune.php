@@ -53,8 +53,10 @@
 
             
         if ($_SESSION["statut_client"] != "jeune") {
-            echo "Vous devez vous inscrire ou vous connecter";
-            echo '
+            echo '<div class="vous-devez">
+            Vous devez vous inscrire ou vous connecter
+           </div>
+            
             <form action="/php/inscription.php" method="post" id="inscription">
             <div class="boxjeune" >
                 <div class="Jeune">';
@@ -69,11 +71,12 @@
                     <label for="email">Email</label>* <input type="text" name="email" id="email" required="required"><br>
                     <label for="mdp">Mot de passe</label>*<input type="password" name="mdp" id="mdp" required="required"><br>
                     <label for="mdpc">Confirmer le mot de passe</label>*<input type="password" name="mdpc" id="mdpc" required="required"><br>
-                    <input type="submit" class="valider" value="S\'inscrire">
+                    <input type="submit" class="sinscrire" value="S\'inscrire">
+                    <button id="conn" class="connexion-jeune">Connexion</button>
                 </div>';
-                echo '
-                <button id="conn">Connexion</button>
-                ';
+                
+               
+            
             echo '
             </div>
             </form>
@@ -88,11 +91,10 @@
                         echo '</div>';
                         echo '<label for="emailcon">Email</label>* <input type="text" name="email" id="emailcon" required="required"><br>
                         <label for="mdpcon">Mot de passe</label>*<input type="password" name="mdp" id="mdpcon" required="required"><br>
-                        <input type="submit" class="valider" value="Se connecter">
+                        <input type="submit" class="sinscrire" value="Se connecter">
+                        <button id="insc" class=connexion-jeune>Inscription</button>
                     </div>';
-                echo '
-                <button id="insc">Inscription</button>
-                ';
+                
             echo '
                 </div></form>
             ';
@@ -105,7 +107,7 @@
             
             $indexjeune = chercheCompteJeuneParId($bdd, $_SESSION["idcompte"]);
             echo '
-                <a href="/php/deconnexion.php">Deconnexion</a>
+                <a href="/php/deconnexion.php" class="deconnexion">Deconnexion</a>
             ';
             if (!$_SESSION["comptecomplet"]) {
                 // compte incomplet
@@ -124,19 +126,17 @@
 
                 echo '<div class="pageprincipale" id="pageprincipale">';
 
-                echo '<div>Bonjour '.$_SESSION["prenom"].' '. $_SESSION["nom"].'</div>';
+                echo '<div class="bonjour">Bonjour '.$_SESSION["prenom"].' '. $_SESSION["nom"].'</div>';
 
                 // bouton modifier son compte
                 echo '
-                <button id="modifiercompte">Modifier les informations de mon compte</button>
-                <button id="pdf">Exporter en pdf</button>
+                <button class="modif" id="modifiercompte">Modifier les informations de mon compte</button>
+                <button class="exporpdf" id="pdf">Exporter en pdf</button>
                 ';
 
-                // affichage de l'etat de la demande pour le consultant
-                echo '
-                <div>Statut de la demande : '.($bdd->comptejeune[$indexjeune]->messagestatutdemandeconsultant).'</div>
-                ';
-
+               echo '<div class="montrerlistereferents">Voici votre liste de référents';
+               
+               echo '</div>';
 
                 // afficher la liste des referents
 
@@ -156,13 +156,18 @@
                     }
 
                 echo '</div>';
+                 // affichage de l'etat de la demande pour le consultant
+                 echo '
+                 <div class="statutdemande">Statut de la demande : '.($bdd->comptejeune[$indexjeune]->messagestatutdemandeconsultant).'</div>
+                 ';
+ 
 
                 if ($bdd->comptejeune[$indexjeune]->statutdemandeconsultant == 0) {
                     echo '
-                    <button id="ajouterreferent">Ajouter une demande de référencement</button>
+                    <button class="ajoutref" id="ajouterreferent">Ajouter une demande de référencement</button>
                     ';
                     echo '
-                    <a href="/php/demandeconsultation.php" id="envoyerconsultant">Envoyer la demande au consultant</a>
+                    <a href="/php/demandeconsultation.php" class="envoicon" id="envoyerconsultant">Envoyer la demande au consultant</a>
                     ';
                 }
 
@@ -177,7 +182,7 @@
 
 
                 echo '<div id="popup">
-                    <button id="fermerpopup">Fermer</button>
+                    <button class="fermer" id="fermerpopup">Fermer</button>
                 </div>';
 
 

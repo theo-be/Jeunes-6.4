@@ -6,28 +6,35 @@ html * {
 }
 
 .text-partenaire{
-  font-size: 38px;
+  font-size: 28px;
   color: rgb(100, 94, 94);
   text-align:left;
-  margin:auto;
+  margin: 10px auto;
 }
 
-.box-logo{
-  margin:auto;
-  width: 75%;
-}
+
 
 .logo{
-  width: 300px;
-  height: 200px;
+  width: 230px;
+  height: 140px;
 }
 
 .tab{
   border-collapse: separate;
-  border-spacing: 200px 75px ;
+  border-spacing: 185px 60px ;
 }
 
 .box-partenaire{
   margin: auto;
-  width:40%;
+  width: 49%;
+}
+
+.deconnexion, .deconnexion:visited{
+  font-size:20px;
+  padding: 5px 10px 5px 10px;
+  margin-left: 25px;
+  color: white;
+  border:1px solid black;
+  background-color: rgb(180, 176, 176);
+  
 }

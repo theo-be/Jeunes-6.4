@@ -39,7 +39,9 @@ $contenutoken = json_encode($token, JSON_PRETTY_PRINT);
 file_put_contents("../data/token.json", $contenutoken);
 
 
-require_once "deconnexion.php";
+// déconnexion
+$_SESSION = array();
+session_destroy();
 
 header("Location: /web/remerciements.php");
 ?>

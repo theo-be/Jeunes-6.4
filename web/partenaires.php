@@ -22,7 +22,7 @@
 
 
 
-    <div class="box-logo">
+   
 
         <table class="tab">
 

@@ -30,17 +30,17 @@ if ($prerempli) {
     // echo 'prerempli';
     echo '
     <div class="boxreferent" >
-    <div class="referent">
+    <div class="referentdétail">
 
     <div>Statut de la demande de référencement : '.$bdd->comptejeune[$idjeune]->statutdemande[$indexref].'</div>
-
+<br>
     <label for="nomref">Nom</label>* <input type="text" name="nomref" id="nomref" required="required" value="'.$compte->nom.'">
-    <label for="prenomref">Prénom</label>* <input type="text" name="prenomref" id="prenomref" required="required" value="'.$compte->prenom.'">
-    <label for="emailref">Email</label>* <input type="text" name="emailref" id="emailref" required="required" value="'.$compte->email.'">
-    <label for="datenaissanceref">Date de naissance</label>* <input type="text" name="datenaissanceref" id="datenaissanceref" required="required" value="'.$compte->datenaissance.'">
-    <label for="reseauref">Réseau</label>* <input type="text" name="reseauref" id="reseauref" required="required" value="'.$compte->reseau.'">
-    <label for="presentationref">Présentation</label>* <input type="text" name="presentationref" id="presentationref" required="required" value="'.$compte->presentation.'">
-    <label for="dureeref">Durée</label>* <input type="text" name="dureeref" id="dureeref" required="required" value="'.$compte->duree.'">
+    <label for="prenomref">Prénom</label>* <input type="text" name="prenomref" id="prenomref" required="required" value="'.$compte->prenom.'"><br>
+    <label for="emailref">Email</label>* <input type="text" name="emailref" id="emailref" required="required" value="'.$compte->email.'"><br>
+    <label for="datenaissanceref">Date de naissance</label>* <input type="text" name="datenaissanceref" id="datenaissanceref" required="required" value="'.$compte->datenaissance.'"><br>
+    <label for="reseauref">Réseau social</label>* <input type="text" name="reseauref" id="reseauref" required="required" value="'.$compte->reseau.'"><br>
+    <label for="presentationref">Présentation</label>* <input type="text" name="presentationref" id="presentationref" required="required" value="'.$compte->presentation.'"><br>
+    <label for="dureeref">Durée</label>* <input type="text" name="dureeref" id="dureeref" required="required" value="'.$compte->duree.'"><br>
     </div>
     </div>';
 
@@ -61,30 +61,32 @@ if ($prerempli) {
                 <b>Je confirme sa(son)*</b>
             </div>
             <div class="coche-referent">
-                <label for="confiance">Confiance</label><input type="checkbox" name="savoiretreref[]" id="confiance" value="confiance"' . (in_array("confiance", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '>
-                <label for="bienveillance">Bienveillance</label><input type="checkbox" name="savoiretreref[]" id="bienveillance" value="bienveillance"' . (in_array("bienveillance", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '>
-                <label for="respect">Respect</label><input type="checkbox" name="savoiretreref[]" id="respect" value="respect"' . (in_array("respect", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '>
-                <label for="honnetete">Honneteté</label><input type="checkbox" name="savoiretreref[]" id="honnetete" value="honnetete"' . (in_array("honnetete", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '>
-                <label for="tolerance">Tolérance</label><input type="checkbox" name="savoiretreref[]" id="tolerance" value="tolerance"' . (in_array("tolerance", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '>
-                <label for="juste">Juste</label><input type="checkbox" name="savoiretreref[]" id="juste" value="juste"' . (in_array("juste", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '>
-                <label for="impartial">Impartial</label><input type="checkbox" name="savoiretreref[]" id="impartial" value="impartial"' . (in_array("impartial", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '>
-                <label for="travail">Travail</label><input type="checkbox" name="savoiretreref[]" id="travail" value="travail"' . (in_array("travail", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '>
+                <input type="checkbox" name="savoiretreref[]" id="confiance" class="case-coche" value="confiance"' . (in_array("confiance", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '><label for="confiance">Confiance</label><br>
+                <input type="checkbox" name="savoiretreref[]" id="bienveillance" class="case-coche" value="bienveillance"' . (in_array("bienveillance", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '><label for="bienveillance">Bienveillance</label><br>
+                <input type="checkbox" name="savoiretreref[]" id="respect" class="case-coche" value="respect"' . (in_array("respect", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '><label for="respect">Respect</label><br>
+                <input type="checkbox" name="savoiretreref[]" id="honnetete" class="case-coche" value="honnetete"' . (in_array("honnetete", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '><label for="honnetete">Honneteté</label><br>
+                <input type="checkbox" name="savoiretreref[]" id="tolerance" class="case-coche" value="tolerance"' . (in_array("tolerance", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '><label for="tolerance">Tolérance</label><br>
+                <input type="checkbox" name="savoiretreref[]" id="juste" class="case-coche" value="juste"' . (in_array("juste", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '><label for="juste">Juste</label><br>
+                <input type="checkbox" name="savoiretreref[]" id="impartial" class="case-coche" value="impartial"' . (in_array("impartial", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '><label for="impartial">Impartial</label><br>
+                <input type="checkbox" name="savoiretreref[]" id="travail" class="case-coche" value="travail"' . (in_array("travail", $bdd->comptejeune[$idjeune]->savoiretreref[$i]->savoiretre) ? 'checked="checked"' : '') . '><label for="travail">Travail</label><br>
             </div>
-            <div class="choix">
+            <div class="choix-referent">
             *faire 4 choix maximum
             </div>
-            <div class="boxgauche-referent">
-
-            <div class="boxcommentaire-referent">
-                COMMENTAIRES
-            </div>';
+           </div>
+            ';
             $sav = 1;
         }
         // commentaire
         if (!$com && isset($bdd->comptejeune[$idjeune]->commentaire[$i]) && $bdd->comptejeune[$idjeune]->commentaire[$i]->de == $idreferent) {
-            echo '<div class="commentaire-referent">
-            <textarea name="commentaire" id="commentaire" cols="30" rows="10">' . $bdd->comptejeune[$idjeune]->commentaire[$i]->texte.'</textarea>
-            </div>';
+            echo '<div class="boxgauche-referentformulaire">
+
+            <div class="boxcommentaire-referent">
+                COMMENTAIRES
+            </div>
+            <div class="commentaire-referent">
+            <textarea name="commentaire" id="commentaire" cols="27" rows="24">' . $bdd->comptejeune[$idjeune]->commentaire[$i]->texte.'</textarea>
+            </div></div>';
             $com = 1;
         }
 
@@ -97,25 +99,17 @@ if ($prerempli) {
 
     echo '
     <form action="/php/inscriptionreferent.php" method="post">
-    <div class="boxreferent" >
+    <div class="boxreferentajout" >
     <div class="referent">
-        nom* <input type="text" name="nomref" id="nomref" required="required">
-        prenom* <input type="text" name="prenomref" id="prenomref" required="required">
-        email* <input type="text" name="emailref" id="emailref" required="required">
-        datenaissance* <input type="text" name="datenaissanceref" id="datenaissanceref" required="required">
-        reseau* <input type="text" name="reseauref" id="reseauref" required="required">
-        presentation* <input type="text" name="presentationref" id="presentationref" required="required">
-        duree* <input type="text" name="dureeref" id="dureeref" required="required">'/*
-        <p>Ses savoirs être*</p>
-        confiance<input type="checkbox" name="savoiretreref[]" id="confiance" value="confiance">
-        bienveillance<input type="checkbox" name="savoiretreref[]" id="bienveillance" value="bienveillance">
-        respect<input type="checkbox" name="savoiretreref[]" id="respect" value="respect">
-        honnetete<input type="checkbox" name="savoiretreref[]" id="honnetete" value="honnetete">
-        tolerance<input type="checkbox" name="savoiretreref[]" id="tolerance" value="tolerance">
-        juste<input type="checkbox" name="savoiretreref[]" id="juste" value="juste">
-        impartial<input type="checkbox" name="savoiretreref[]" id="impartial" value="impartial">
-        travail<input type="checkbox" name="savoiretreref[]" id="travail" value="travail">*/
-        .'<input type="submit" class="valider value="Envoyer">
+    <label for="nomref">Nom</label>* <input type="text" name="nomref" id="nomref" required="required"><br>
+    <label for="prenomref">Prénom</label>* <input type="text" name="prenomref" id="prenomref" required="required"><br>
+    <label for="emailref">Email</label>* <input type="text" name="emailref" id="emailref" required="required"><br>
+    <label for="datenaissanceref">Date de naissance</label>* <input type="text" name="datenaissanceref" id="datenaissanceref" required="required"><br>
+    <label for="reseauref">Réseau social</label>* <input type="text" name="reseauref" id="reseauref" required="required"><br>
+    <label for="presentationref">Présentation</label>* <input type="text" name="presentationref" id="presentationref" required="required"><br>
+    <label for="dureeref">Durée</label>* <input type="text" name="dureeref" id="dureeref" required="required"><br>'
+      
+        .'<input type="submit" class="valider-referent" value="Envoyer">
         </div>
         </div>
     </form>

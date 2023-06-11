@@ -78,7 +78,7 @@ require_once "../php/cherchecompte.php";
                 session_destroy();
             }
             else {
-                echo '<a href="/php/deconnexion.php">Deconnexion</a>';
+                echo '<a href="/php/deconnexion.php" class="deconnexion">Déconnexion</a>';
                 $_SESSION["statut_client"] = "referent";
                 $_SESSION["idcompte"] = $idref;
                 $compte = $bdd->compteref[$idref];
@@ -89,7 +89,7 @@ require_once "../php/cherchecompte.php";
                 Confirmez cette expérience et ce que vous avez
                 </div>
                 <div class="textereferent2">
-                pu constater au contact de ce jeune.
+                pu constater au contact de ce jeune. <br> <br>
                 </div>';
 
                 echo '
@@ -97,11 +97,11 @@ require_once "../php/cherchecompte.php";
                 <div class="boxreferent" >
                 <div class="referent">
                     <label for="nomref">Nom</label>* <input type="text" name="nomref" id="nomref" required="required" value="'.$compte->nom.'">
-                    <label for="prenomref">Prénom</label>* <input type="text" name="prenomref" id="prenomref" required="required" value="'.$compte->prenom.'">
-                    <label for="emailref">Email</label>* <input type="text" name="emailref" id="emailref" required="required" value="'.$compte->email.'">
+                    <label for="prenomref">Prénom</label>* <input type="text" name="prenomref" id="prenomref" required="required" value="'.$compte->prenom.'"><br>
+                    <label for="emailref">Email</label>* <input type="text" name="emailref" id="emailref" required="required" value="'.$compte->email.'"><br>
                     <label for="datenaissanceref">Date de naissance</label>* <input type="text" name="datenaissanceref" id="datenaissanceref" required="required" value="'.$compte->datenaissance.'">
-                    <label for="reseauref">Réseau</label>* <input type="text" name="reseauref" id="reseauref" required="required" value="'.$compte->reseau.'">
-                    <label for="presentationref">Présentation</label>* <input type="text" name="presentationref" id="presentationref" required="required" value="'.$compte->presentation.'">
+                    <label for="reseauref">Réseau social</label>* <input type="text" name="reseauref" id="reseauref" required="required" value="'.$compte->reseau.'"><br><br>
+                    <label for="presentationref">Présentation</label>* <input type="text" name="presentationref" id="presentationref" required="required" value="'.$compte->presentation.'"><br>
                     <label for="dureeref">Durée</label>* <input type="text" name="dureeref" id="dureeref" required="required" value="'.$compte->duree.'">
                 </div>
                 </div>';
@@ -116,19 +116,22 @@ require_once "../php/cherchecompte.php";
                         <b>Je confirme sa(son)*</b>
                     </div>
                     <div class="coche-referent">
-                    <p>Ses savoirs être*</p>
-                    <label for="confiance">Confiance</label><input type="checkbox" name="savoiretreref[]" id="confiance" value="confiance" onclick="limitCheckboxSelection()">
-                    <label for="bienveillance">Bienveillance</label><input type="checkbox" name="savoiretreref[]" id="bienveillance" value="bienveillance" onclick="limitCheckboxSelection()">
-                    <label for="respect">Respect</label><input type="checkbox" name="savoiretreref[]" id="respect" value="respect" onclick="limitCheckboxSelection()">
-                    <label for="honnetete">Honneteté</label><input type="checkbox" name="savoiretreref[]" id="honnetete" value="honnetete" onclick="limitCheckboxSelection()">
-                    <label for="tolerance">Tolérance</label><input type="checkbox" name="savoiretreref[]" id="tolerance" value="tolerance" onclick="limitCheckboxSelection()">
-                    <label for="juste">Juste</label><input type="checkbox" name="savoiretreref[]" id="juste" value="juste" onclick="limitCheckboxSelection()">
-                    <label for="impartial">Impartial</label><input type="checkbox" name="savoiretreref[]" id="impartial" value="impartial" onclick="limitCheckboxSelection()">
-                    <label for="travail">Travail</label><input type="checkbox" name="savoiretreref[]" id="travail" value="travail" onclick="limitCheckboxSelection()">
+                    
+                    <input type="checkbox" name="savoiretreref[]" id="confiance" value="confiance" onclick="limitCheckboxSelection()" class="case-coche"><label for="confiance">Confiance</label><br>
+                    <input type="checkbox" name="savoiretreref[]" id="bienveillance" value="bienveillance" onclick="limitCheckboxSelection()" class="case-coche"><label for="bienveillance">Bienveillance</label><br>
+                    <input type="checkbox" name="savoiretreref[]" id="respect" value="respect" onclick="limitCheckboxSelection()" class="case-coche"><label for="respect">Respect</label><br>
+                    <input type="checkbox" name="savoiretreref[]" id="honnetete" value="honnetete" onclick="limitCheckboxSelection()" class="case-coche"><label for="honnetete">Honneteté</label><br>
+                    <input type="checkbox" name="savoiretreref[]" id="tolerance" value="tolerance" onclick="limitCheckboxSelection()" class="case-coche"><label for="tolerance">Tolérance</label><br>
+                    <input type="checkbox" name="savoiretreref[]" id="juste" value="juste" onclick="limitCheckboxSelection()" class="case-coche"><label for="juste">Juste</label><br>
+                    <input type="checkbox" name="savoiretreref[]" id="impartial" value="impartial" onclick="limitCheckboxSelection()" class="case-coche"><label for="impartial">Impartial</label><br>
+                    <input type="checkbox" name="savoiretreref[]" id="travail" value="travail" onclick="limitCheckboxSelection()" class="case-coche"><label for="travail">Travail</label><br>   
                     </div>
-                    <div class="choix">
+                    <div class="choix-referent">
                     *faire 4 choix maximum
                   </div>
+                   
+                    </div>
+
                     <div class="boxgauche-referent">
 
                     <div class="boxcommentaire-referent">
@@ -136,24 +139,28 @@ require_once "../php/cherchecompte.php";
                     </div>
                 
                     <div class="commentaire-referent">
-                    <textarea name="commentaire" id="commentaire" cols="30" rows="10"></textarea>
+                    <textarea name="commentaire" id="commentaire" cols="27" rows="24"></textarea>
                     </div>
                 
-                    </div>
                     </div>
                 ';
 
 
                 // affichage des infos du jeune
-                echo '<div>;
+                echo '
+                <div class="boxinfosjeune-referent">
+                <div class="informations-du-jeune">
+                <u>Informations du jeune</u>
+                </div>
+                <div>
                 <div class="boxjeune" >
                 <div class="Jeune">';
-                echo "<p>Informationsdu jeune</p>";
+                
                 echo "<p>Prénom : " . $bdd->comptejeune[$idjeune]->prenom . "</p>";
                 echo "<p>Nom : " . $bdd->comptejeune[$idjeune]->nom . "</p>";
-                echo "<p>Datede : " . $bdd->comptejeune[$idjeune]->email . "</p>";
-                echo "<p>Email : " . $bdd->comptejeune[$idjeune]->datenaissance . "</p>";
-                echo "<p>Réseau : " . $bdd->comptejeune[$idjeune]->reseau . "</p>";
+                echo "<p>Date de naissance: " . $bdd->comptejeune[$idjeune]->datenaissance . "</p>";
+                echo "<p>Email : " . $bdd->comptejeune[$idjeune]->email . "</p>";
+                echo "<p>Réseau social : " . $bdd->comptejeune[$idjeune]->reseau . "</p>";
                 echo "<p>Engagement : " . $bdd->comptejeune[$idjeune]->engagement . "</p>";
                 echo "<p>Durée : " . $bdd->comptejeune[$idjeune]->duree . "</p>";
                 echo "</div>";
@@ -171,20 +178,22 @@ require_once "../php/cherchecompte.php";
                     </div>
                     <div class="coche-jeune">
 
-                        <label for="autonome">Autonome</label><input type="checkbox" id="autonome" value="autonome"' . (in_array("autonome", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '>
-                        <label for="passionne">Passionné</label><input type="checkbox" id="passionne" value="passionne"' . (in_array("passionne", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '>
-                        <label for="reflechi">Réfléchi</label><input type="checkbox" id="reflechi" value="reflechi"' . (in_array("reflechi", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '>
-                        <label for="alecoute">A l\'écoute</label><input type="checkbox" id="alecoute" value="alecoute"' . (in_array("alecoute", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '>
-                        <label for="organise">Organisé</label><input type="checkbox" id="organise" value="organise"' . (in_array("organise", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '>
-                        <label for="fiable">Fiable</label><input type="checkbox" id="fiable" value="fiable"' . (in_array("fiable", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '>
-                        <label for="patient">Patient</label><input type="checkbox" id="patient" value="patient"' . (in_array("confiance", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '>
-                        <label for="responsable">Responsable</label><input type="checkbox" id="responsable" value="responsable"' . (in_array("responsable", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '>
-                        <label for="sociable">Sociable</label><input type="checkbox" id="sociable" value="sociable"' . (in_array("sociable", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '>
-                        <label for="optimiste">Optimiste</label><input type="checkbox" id="optimiste" value="optimiste"' . (in_array("optimiste", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '>
+                    <input type="checkbox" id="autonome" class="case-coche-jeune" value="autonome"' . (in_array("autonome", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '><label for="autonome">Autonome</label><br>
+                        <input type="checkbox" id="passionne" class="case-coche-jeune" value="passionne"' . (in_array("passionne", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '><label for="passionne">Passionné</label><br>
+                        <input type="checkbox" id="reflechi" class="case-coche-jeune" value="reflechi"' . (in_array("reflechi", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '><label for="reflechi">Réfléchi</label><br>
+                        <input type="checkbox" id="alecoute" class="case-coche-jeune" value="alecoute"' . (in_array("alecoute", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '><label for="alecoute">A l\'écoute</label><br>
+                       <input type="checkbox" id="organise" class="case-coche-jeune" value="organise"' . (in_array("organise", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '> <label for="organise">Organisé</label><br>
+                       <input type="checkbox" id="fiable" class="case-coche-jeune" value="fiable"' . (in_array("fiable", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '> <label for="fiable">Fiable</label><br>
+                       <input type="checkbox" id="patient" class="case-coche-jeune" value="patient"' . (in_array("confiance", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '> <label for="patient">Patient</label><br>
+                        <input type="checkbox" id="responsable" class="case-coche-jeune" value="responsable"' . (in_array("responsable", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '><label for="responsable">Responsable</label><br>
+                        <input type="checkbox" id="sociable" class="case-coche-jeune" value="sociable"' . (in_array("sociable", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '><label for="sociable">Sociable</label><br>
+                       <input type="checkbox" id="optimiste" class="case-coche-jeune" value="optimiste"' . (in_array("optimiste", $bdd->comptejeune[$idjeune]->savoiretre) ? 'checked="checked" disabled' : '') . '> <label for="optimiste">Optimiste</label><br>
                     </div>
-                </div>';
-                echo '<input type="submit" class="valider" value="Valider la demande de référencement">';
-                echo '<a href="/php/refusreferent.php" class="valider">Refuser la demande de référencement</a>';
+                </div>
+                </div>
+                ';
+                echo '<input type="submit" class="valider-referent" value="Valider la demande de référencement">';
+                echo '<a href="/php/refusreferent.php" class="refuser-referent">Refuser la demande de référencement</a>';
                 echo '</form>';
             }
         }

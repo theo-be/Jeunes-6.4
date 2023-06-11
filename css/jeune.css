@@ -7,12 +7,19 @@ html * {
 
 body{
     background-image: url('/img/logorose.png');
-    background-position: 50% 350px;
+    background-position: 50% 650px;
     background-repeat: no-repeat;
     background-size: 50%;
     
 }
 
+
+.vous-devez{
+    margin-top:10px;
+    text-align: center;
+    font-size:50PX;
+    color:rgb(230, 0, 126);
+}
 
 
 .textejeune{
@@ -22,21 +29,55 @@ body{
     color:rgb(230, 0, 126);
 }
 
+.textejeune-decrivez{
+    margin:auto;
+    text-align: center;
+    font-size:35PX;
+    color:rgb(230, 0, 126);
+}
 .boxjeune{
     background-color: white;
-    margin: auto;
+    margin: 20px auto;
     width:35%;
-    height: 450px;
+    height: 440px;
+    border:4px solid rgb(230, 0, 126);
+    padding : 20px;
+}
+
+.boxjeune-page2{
+    background-color: white;
+    margin: 20px auto;
+    width:35%;
+    height: 480px;
     border:4px solid rgb(230, 0, 126);
     padding : 20px;
 }
 
 .Jeune{
-    font-size: 38px;
+    font-size: 36px;
     color: rgb(230, 0, 126);
     line-height: 1.5;
 }
 
+.sinscrire{
+    background-color: rgb(230, 0, 126);
+   
+    margin-top:10px;
+    width: 40%;
+    height: 60px;
+    color:white;
+    font-size: 35px;
+}
+
+.connexion-jeune{
+    background-color: rgb(230, 0, 126);
+    margin-left: 10px;
+    
+    width: 40%;
+    height: 60px;
+    color:white;
+    font-size: 35px;
+}
 
 .boxdroite-jeune{
    margin-right: 2%;
@@ -47,36 +88,37 @@ body{
 .messavoirs-jeune{
     text-align-last: right;
     color:rgb(230, 0, 126);
-    font-size:40px;
-    padding-right:20px;
-    letter-spacing: -3px;
+    font-size:25px;
+    padding-right:18px;
+    letter-spacing: -2px;
 }
 
 .boxconfirme-jeune{
-    height: 60px;  
+    height: 50px;  
     background: linear-gradient(to right, white, rgb(230, 0, 126));
     color:white;
-    font-size:40px;
-    padding-left: 65%;
-    letter-spacing: -3px;
+    font-size:33px;
+    padding-left: 35%;
+    letter-spacing: -px;
     padding-top: 5px;
 }
 
 .coche-jeune{
     padding-left:10%;
     background-image: radial-gradient(circle at 0% 0%, rgb(253, 243, 251), rgb(252, 238, 238));
-    height: 600px;
-    font-size: 45px;
+    height: 530px;
+    font-size: 30px;
+    line-height: 50px;
 }
 
-.case-coche{
+.case-coche-jeune{
      
-    scale:3;
+    scale:2;
     margin-right: 20px;
     
 }
 
-.case-coche + label{
+.case-coche-jeune + label{
     display: inline-block;
     vertical-align: middle;
     margin-left: 5px;
@@ -112,4 +154,109 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+}
+
+.informations-du-jeune{
+    margin-left: 39%;
+    font-size: 40px;
+    color: rgb(190, 4, 106);
+}
+
+.deconnexion, .deconnexion:visited{
+    font-size:20px;
+    padding: 5px 10px 5px 10px;
+    margin-left: 25px;
+    color: white;
+    border:1px solid black;
+    background-color: rgb(180, 176, 176);
+    text-decoration:none;
+    
+}
+
+.fermer{
+    font-size:20px;
+    padding: 5px 10px 5px 10px;
+    margin-top:10px;
+    margin-left: 25px;
+    color: white;
+    border:1px solid black;
+    background-color: rgb(180, 176, 176);
+}
+
+.ajoutref{
+    background-color: yellowgreen;
+    height: 60px;
+    color:white;
+    font-size: 35px;
+    margin-top: 25px;
+    text-decoration: none;
+    text-align: center;
+    padding-left:5px;
+    padding-right:5px;
+    margin-left:15%;
+    border: 1px solid black;
+}
+
+.envoicon{
+    background-color: rgb(0, 153, 255);
+    margin-left:2%;
+    margin-top: 250px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 60px;
+    color:white;
+    font-size: 35px;
+    text-decoration: none;
+    padding-left:15px;
+    padding-right:15px;
+    border: 1px solid black;
+}
+
+.bonjour{
+    margin: 10px auto;
+    text-align: center;
+    color:rgb(230, 0, 126);
+    font-size: 30px;
+}
+
+.modif{
+    background-color: rgb(230, 0, 126);
+    height: 45px;
+    color:white;
+    font-size: 25px;
+    margin-top: 25px;
+    text-decoration: none;
+    text-align: center;
+   
+    margin-left:24.5%;
+    border: 1px solid black;
+    width:25%;
+}
+
+.exporpdf{
+    background-color: rgb(230, 0, 126);
+    height: 45px;
+    color:white;
+    font-size: 25px;
+    margin-top: 25px;
+    text-decoration: none;
+    text-align: center;
+    
+    width:25%;
+    margin-left:20px;
+    border: 1px solid black;
+}
+
+.statutdemande{
+    margin: 15px auto;
+    font-size: 20px;
+    text-align:center;
+}
+
+.montrerlistereferents{
+    margin: 25px auto;
+    font-size: 20px;
+    text-align:center;
+    
 }

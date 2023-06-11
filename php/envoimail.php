@@ -58,7 +58,7 @@ function envoyermail ($vers, $type, $objet, $token = "") {
             <br>
             Cordialement,<br>
             L’équipe Jeunes 6.4";
-            $mail->Body    = $intro . ' <a href="192.168.1.9/web/'.$type.'.php/?t='.$token.'">192.168.1.9/web/'.$type.'.php/?t='.$token.'</a>';
+            $mail->Body    = $intro . ' <a href="http://localhost:8080/web/'.$type.'.php/?t='.$token.'">http://localhost:8080/web/'.$type.'.php/?t='.$token.'</a>';
         }
         elseif ($type == "consultant") {
             $intro = "Bonjour,
@@ -72,7 +72,7 @@ function envoyermail ($vers, $type, $objet, $token = "") {
             <br>
             Cordialement,<br>
             L’équipe Jeunes 6.4";
-            $mail->Body    = $intro . '<a href="192.168.1.9/web/'.$type.'.php/?t='.$token.'">192.168.1.9/web/'.$type.'.php/?t='.$token.'</a>';
+            $mail->Body    = $intro . '<a href="http://localhost:8080/web/'.$type.'.php/?t='.$token.'">http://localhost:8080/web/'.$type.'.php/?t='.$token.'</a>';
         }
         elseif ($type == "jeuneref") {
             $intro = "Bonjour,<br>
@@ -85,7 +85,7 @@ function envoyermail ($vers, $type, $objet, $token = "") {
             Cordialement,<br>
             
             L'équipe Jeunes 6.4 ";
-            $mail->Body    = $intro . '<a href="192.168.1.9/web/jeune.php/">192.168.1.9/web/jeune.php/</a>';
+            $mail->Body    = $intro . '<a href="http://localhost:8080/web/jeune.php/">http://localhost:8080/web/jeune.php/</a>';
         }
         elseif ($type == "jeunecon") {
             $intro = "Bonjour,<br>
@@ -98,13 +98,13 @@ function envoyermail ($vers, $type, $objet, $token = "") {
             Cordialement,<br>
             
             L'équipe Jeunes 6.4 ";
-            $mail->Body = $intro . '<a href="192.168.1.9/web/jeune.php/">192.168.1.9/web/jeune.php/</a>';
+            $mail->Body = $intro . '<a href="http://localhost:8080/web/jeune.php/">http://localhost:8080/web/jeune.php/</a>';
         }
 
 
 
         // $mail->Body    = $intro . '<a href="192.168.1.9/web/'.$type.'.php/?t='.$token.'">192.168.1.9/web/'.$type.'.php/?t='.$token.'</a>';
-        $mail->AltBody = 'le site : 192.168.1.9/, token : '.$token;
+        $mail->AltBody = 'le site : http://localhost:8080/, token : '.$token;
 
         $mail->send();
         echo 'Message has been sent';
