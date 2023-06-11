@@ -36,6 +36,7 @@ require_once "../php/cherchecompte.php";
             // afficher les infos du jeune et le form du referent
 
             
+            // chargement de la base de données
 
             $contenutoken = file_get_contents("../data/token.json");
             $token = json_decode($contenutoken, false);
@@ -47,6 +48,8 @@ require_once "../php/cherchecompte.php";
             $idref = 0;
             $idjeune = 0;
 
+            
+            // vérification du jeton
             $trouvejeton = 0;
             for ($i = 0; $i < $nbtokens; $i++) {
                 if ($token->token[$i]->token == $_GET["t"] && $token->token[$i]->type == "consultant" && $token->token[$i]->etat == "en cours") {
@@ -196,7 +199,7 @@ require_once "../php/cherchecompte.php";
                                     if ($bdd->comptejeune[$idjeune]->commentaire[$k]->de == $bdd->compteref[$j]->id) {
                                         echo '<div class="commentaire-consultant">';
                                         echo '<div class="titrecommentaire"> Commentaire du référent</div>';
-                                        echo '<div class="textecommentaire">commentaire : ' . $bdd->comptejeune[$idjeune]->commentaire[$k]->texte.'</div></div>
+                                        echo '<div class="textecommentaire">' . $bdd->comptejeune[$idjeune]->commentaire[$k]->texte.'</div></div>
                                         ';
                                         
                                     }
@@ -210,6 +213,7 @@ require_once "../php/cherchecompte.php";
                     }
                 }
 
+                // lien de validation
                 echo '<div class="lienconsultant">';
                 echo '<a href="/php/confirmationconsultant.php" class="valider-consultant">Je confirme la demande</a>';
                 echo '<a href="/php/refusconsultant.php" class="refuser-consultant">Je refuse la demande</a>';
