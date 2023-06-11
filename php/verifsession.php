@@ -1,4 +1,5 @@
 <?php
+// on initialise plusieurs variables qui sont utilisées partout sur le site
 
 if (!isset($_SESSION["statut_client"]))
     $_SESSION["statut_client"] = "visiteur";
