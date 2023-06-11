@@ -9,20 +9,22 @@ require_once "envoimail.php";
 
 // Verification des infos
 if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["emailref"]) && isset($_POST["datenaissanceref"]) && isset($_POST["reseauref"]) && isset($_POST["dureeref"]) && isset($_POST["presentationref"]))) {
-    // erreur
+    // erreur données manquantes
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : formulaire corompu";
 
 } else if (isset($_POST["email"]) && !preg_match('#([0-9a-z]){3,}@([a-z]){2,}.([a-z]){2,4}$#i', trim($_POST["email"]))) {
-    // erreur
+    // erreur email
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : addresse email dans la mauvais format";
 } else if ((isset($_POST["email"]) && !preg_match('#^([0-9]{2}/){2}[0-9]{4}$#', $_POST["datenaissance"]))) {
-    // erreur
+    // erreur date de naissance
     $_SESSION["erreur"] = 1;
     $_SESSION["messageerreur"] = "ERREUR : date de naissance dans le mauvais format, format JJ/MM/AAAA";
 
 } else {
+    
+    // chargement de la base de données
     $contenufichier = file_get_contents("../data/bdd.json");
     $bdd = json_decode($contenufichier, false);
 
@@ -76,13 +78,6 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
         $bdd->compteref[$idreferent]->presentation = htmlspecialchars(trim($_POST["presentationref"]));
         $bdd->compteref[$idreferent]->duree = htmlspecialchars(trim($_POST["dureeref"]));
 
-        // $strucsavoiretreref = new stdClass;
-        // $strucsavoiretreref->de = $bdd->compteref[$idreferent]->id;
-        // $strucsavoiretreref->savoiretre = $_POST["savoiretreref"];
-        // array_push($bdd->comptejeune[$indexjeune]->savoiretreref, $strucsavoiretreref);
-
-
-
 
         // creation du jeton
         $t = creerToken($token, $idjeune, $bdd->compteref[$idreferent]->id, "referent");
@@ -104,17 +99,7 @@ if (!(isset($_POST["nomref"]) && isset($_POST["prenomref"]) && isset($_POST["ema
         array_push($bdd->comptejeune[$indexjeune]->idref, $idreferent);
 
 
-    $_SESSION["nbreferent"]++;
-
-    // $_SESSION["nomref"] = htmlspecialchars($_POST["nomref"]);
-    // $_SESSION["prenomref"] = htmlspecialchars($_POST["prenomref"]);
-    // $_SESSION["emailref"] = htmlspecialchars($_POST["emailref"]);
-    // $_SESSION["datenaissanceref"] = htmlspecialchars($_POST["datenaissanceref"]);
-    // $_SESSION["reseauref"] = htmlspecialchars($_POST["reseauref"]);
-    // $_SESSION["presentationref"] = htmlspecialchars($_POST["presentationref"]);
-    // $_SESSION["dureeref"] = htmlspecialchars($_POST["dureeref"]);
-    // $_SESSION["savoiretreref"] = $_POST["savoiretreref"];
-    
+    $_SESSION["nbreferent"]++;    
 
     $_SESSION["erreur"] = 0;
     $_SESSION["messageerreur"] = "";
