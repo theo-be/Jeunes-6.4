@@ -4,6 +4,7 @@ require_once 'envoimail.php';
 
 session_start();
 
+// chargement de la base de données
 
 $contenufichier = file_get_contents("../data/bdd.json");
 $bdd = json_decode($contenufichier, false);
@@ -17,6 +18,7 @@ $idreferent = $_SESSION["idcompte"];
 $idjeune = $token->token[$_SESSION["tokenid"]]->idjeune;
 
 
+// modification du compte du jeune
 $indexjeune = chercheCompteJeuneParId($bdd, $idjeune);
 
 $token->token[$_SESSION["tokenid"]]->etat = "complet";
