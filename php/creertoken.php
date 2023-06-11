@@ -1,5 +1,6 @@
 <?php
 
+// creerToken génère un jeton aléatoire de 48 caractères et l'enregistre dans la liste
 
 function creerToken ($fichier, $idjeune, $idref, $type) {
     srand();
