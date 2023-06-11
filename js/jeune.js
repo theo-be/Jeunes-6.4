@@ -21,6 +21,7 @@ if (document.getElementById("inscription")) {
 }
 
 
+// bouton ajax ajout de référent
 
 
 if (document.getElementById("ajouterreferent")) {
@@ -46,6 +47,7 @@ if (document.getElementById("ajouterreferent")) {
 
 
 
+// bouton ajax modification du compte
 
 if (document.getElementById("modifiercompte")) {
     document.getElementById("modifiercompte").addEventListener("click", function () {
@@ -66,6 +68,7 @@ if (document.getElementById("modifiercompte")) {
         xhttp.send();
     });
 }
+// bouton ajax détail d'une demande de référencement
 
 if (document.getElementsByClassName("detaildemande")) {
     var boutons = document.getElementsByClassName("detaildemande");
@@ -91,6 +94,7 @@ if (document.getElementsByClassName("detaildemande")) {
 }
 
 
+// bouton qui alterne l'affichage entre le popup et la page principale
 
 if (document.getElementById("fermerpopup")) {
     document.getElementById("popup").style.display = "none";
@@ -101,6 +105,7 @@ if (document.getElementById("fermerpopup")) {
     });
 }
 
+// bouton impression pdf
 if (document.getElementById("pdf")) {
     document.getElementById("pdf").addEventListener("click", () => {
         print();
