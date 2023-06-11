@@ -5,7 +5,7 @@ require_once "envoimail.php";
 require_once "creertoken.php";
 require_once "cherchecompte.php";
 
-
+// chargement de la base de données
 
 $contenufichier = file_get_contents("../data/bdd.json");
 $bdd = json_decode($contenufichier, false);
@@ -32,6 +32,7 @@ $bdd->comptejeune[$indexjeune]->messagestatutdemandeconsultant = "En attente du 
 
 
 
+// sauvegarde
 
 
 $contenutoken = json_encode($token, JSON_PRETTY_PRINT);
