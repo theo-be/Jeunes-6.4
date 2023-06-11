@@ -12,6 +12,7 @@ if ($_SESSION["statut_client"] != "consultant")
 
 
 
+// chargement de la base de données
 
 
 $contenufichier = file_get_contents("../data/bdd.json");
@@ -24,6 +25,7 @@ $token = json_decode($contenutoken, false);
 $indexref = array_search($_SESSION["idref"], $bdd->comptejeune[$_SESSION["idjeune"]]->idref);
 // echo $indexref;
 
+// modification du compte du jeune
 $bdd->comptejeune[$_SESSION["idjeune"]]->statutdemandeconsultant = 3;
 $bdd->comptejeune[$_SESSION["idjeune"]]->messagestatutdemandeconsultant = "Demande refusée par le consultant";
 $token->token[$_SESSION["tokenid"]]->etat = "complet";
@@ -32,6 +34,7 @@ $token->token[$_SESSION["tokenid"]]->etat = "complet";
 
 // envoyermail($bdd->comptejeune[$_SESSION["idjeune"]]->email, "jeunecon", "Votre demande de consultation", "");
 
+// sauvegarde
 
 
 $contenufichier = json_encode($bdd, JSON_PRETTY_PRINT);
