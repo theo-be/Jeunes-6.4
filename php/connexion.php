@@ -11,6 +11,7 @@ session_start();
 if (!isset($_POST["email"])) {
     echo "ERREUR : données manquantes";
 } else {
+    // chargement de la base de données
     $contenufichier = file_get_contents("../data/bdd.json");
 
     $bdd = json_decode($contenufichier, false);
@@ -22,6 +23,7 @@ if (!isset($_POST["email"])) {
     $compteexiste = 0;
     if ($idjeune != -1) {
         if (password_verify($_POST["mdp"], $bdd->comptejeune[$idjeune]->mdp)) {
+            // si le mot de passe est bon, chargement du compte
             $compteexiste = 1;
             $_SESSION["statut_client"] = "jeune";
             $_SESSION["nom"] = $bdd->comptejeune[$idjeune]->nom;
@@ -35,33 +37,11 @@ if (!isset($_POST["email"])) {
             $_SESSION["engagement"] = $bdd->comptejeune[$idjeune]->engagement;
             $_SESSION["comptecomplet"] = $bdd->comptejeune[$idjeune]->complet;
             $_SESSION["idcompte"] = $bdd->comptejeune[$idjeune]->id;
-
-            // // s'il y a au moins un referent
-            // if (($nombreliaison = count($bdd->comptejeune[$idjeune]->idref)) != 0) {
-            //     $idreferent = $bdd->comptejeune[$idjeune]->idref[0];
-            //     $_SESSION["nbreferent"]++;
-            //     $_SESSION["nomref"] = $bdd->compteref[$idreferent]->nom;
-            //     $_SESSION["prenomref"] = $bdd->compteref[$idreferent]->prenom;
-            //     $_SESSION["emailref"] = $bdd->compteref[$idreferent]->email;
-            //     $_SESSION["datenaissanceref"] = $bdd->compteref[$idreferent]->datenaissance;
-            //     $_SESSION["reseauref"] = $bdd->compteref[$idreferent]->reseau;
-            //     $_SESSION["savoiretreref"] = $bdd->compteref[$idreferent]->savoiretre;
-            //     $_SESSION["dureeref"] = $bdd->compteref[$idreferent]->duree;
-            //     $_SESSION["presentationref"] = $bdd->compteref[$idreferent]->presentation;
-            // } else { // s'il n'y a aucun referent
-            //     $_SESSION["nbreferent"] = 0;
-            //     $_SESSION["nomref"] = "";
-            //     $_SESSION["prenomref"] = "";
-            //     $_SESSION["emailref"] = "";
-            //     $_SESSION["datenaissanceref"] = "";
-            //     $_SESSION["reseauref"] = "";
-            //     $_SESSION["savoiretreref"] = [];
-            //     $_SESSION["dureeref"] = "";
-            //     $_SESSION["presentationref"] = "";
-            // }
+            // messages d'erreur
             $_SESSION["erreur"] = 0;
             $_SESSION["messageerreur"] = "";
         } else {
+            // messages d'erreur
             $_SESSION["erreur"] = 1;
             $_SESSION["messageerreur"] = "Erreur : mdp incorrect";
         }
@@ -69,6 +49,7 @@ if (!isset($_POST["email"])) {
 
     }
 
+    // messages d'erreur
 
     if (!$compteexiste) {
         $_SESSION["erreur"] = 1;
