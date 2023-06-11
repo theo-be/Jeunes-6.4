@@ -1,6 +1,6 @@
 <?php
 
-
+// fonctions qui parcourent la base de données pour trouver la position d'un compte dans le tableau des comptes en fonction d'une information clef
 function chercheCompteJeune ($bdd, $email) {
     $nombrecomptes = count($bdd->comptejeune);
     for ($i = 0; $i < $nombrecomptes; $i++) {
